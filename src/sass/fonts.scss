@@ -1,0 +1,70 @@
+@font-face {
+   font-family: "icomoon";
+   font-display: swap;
+   src: url("../assets/fonts/icomoon.woff") format("woff");
+   font-weight: 400;
+   font-style: normal;
+}
+
+[class^="_icon-"]::before,
+[class*=" _icon-"]::before {
+   font-family: "icomoon";
+   font-style: normal;
+   font-weight: normal;
+   font-variant: normal;
+   text-transform: none;
+   line-height: 1;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+._icon-sale:before {
+   content: "\e901";
+}
+._icon-bar:before {
+   content: "\e906";
+   font-size: 22px;
+   padding-right: 10px;
+}
+._icon-down:before {
+   content: "\e900";
+   color: #000;
+}
+._icon-clock:before {
+   content: "\e909";
+}
+._icon-heart:before {
+   content: "\e907";
+   font-size: 20px;
+   padding-right: 10px;
+}
+._icon-shopping-cart:before {
+   content: "\e908";
+   font-size: 20px;
+   @media (min-width: 1000px) {
+      padding-right: 14px;
+   }
+   padding-right: 10px;
+}
+._icon-bell:before {
+   content: "\e905";
+   font-size: 20px;
+}
+._icon-vk:before {
+   content: "\e902";
+}
+._icon-home:before {
+   content: "\e904";
+}
+._icon-search:before {
+   content: "\e986";
+}
+._icon-facebook:before {
+   content: "\ea90";
+}
+._icon-instagram:before {
+   content: "\ea92";
+}
+._icon-youtube:before {
+   content: "\ea9d";
+}

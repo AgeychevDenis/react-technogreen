@@ -2,8 +2,8 @@
    background-color: #000;
    // .footer__top
    &__top {
-      margin-top: 25px;
-      @include adaptiv-value("margin-bottom", 80, 40, 1);
+      padding-top: 25px;
+      @include adaptiv-value("padding-bottom", 80, 40, 1);
    }
    // .footer__rows
    &__rows {
@@ -23,7 +23,7 @@
    // .footer__bottom
    &__bottom {
       text-align: center;
-      margin-bottom: 20px;
+      padding-bottom: 20px;
    }
 }
 .column {

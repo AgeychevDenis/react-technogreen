@@ -1,104 +1,104 @@
-import logoFooter from '../assets/img/logo/logo.svg'
+import logo from '../assets/img/logo/logo-catalog.svg'
 
 const Footer = () => {
    return (
-      <div class="footer">
-         <div class="container">
-            <div class="footer__top">
-               <div class="footer__rows">
-                  <div class="footer__column column-footer__order">
-                     <a data-da=".footer__rows,1000,0" href="#" class="column__logo">
-                        <img src={logoFooter} alt="logo" />
+      <div className="footer">
+         <div className="container">
+            <div className="footer__top">
+               <div className="footer__rows">
+                  <div className="footer__column column-footer__order">
+                     <a data-da=".footer__rows,1000,0" href="#" className="column__logo">
+                        <img src={logo} alt="logo" />
                      </a>
-                     <div class="column__insta">
-                        <p>Наш хэштег в Instagram
+                     <div className="column__insta">
+                        <p>Наш хэштег в Instagram <br />
                            <a href="#">#technogreen</a>
-                           <span>Грамотный выбор – залог эффективности работы</span>
+                           <span> Грамотный выбор – залог эффективности работы</span>
                         </p>
                      </div>
-                     <div class="column__send">
+                     <div className="column__send">
                         <form>
-                           <h4 class="column__send-lable">
+                           <h4 className="column__send-lable">
                               Подпишитесь на нашу рассылку
                            </h4>
-                           <input autocomplete="off" type="text" name="form[]" data-value="Ваш e-mail"
-                              class="column__send-input" />
-                           <button type="submit" class="column__send-btn">
+                           <input autoComplete="off" type="text" name="form[]" data-value="Ваш e-mail"
+                              className="column__send-input" />
+                           <button type="submit" className="column__send-btn">
                               Подписаться
-                              <img class="column__send-check" src="img/icons/check.svg" alt="ok" />
+                              <img className="column__send-check" src="img/icons/check.svg" alt="ok" />
                            </button>
                         </form>
                      </div>
                   </div>
-                  <div data-spollers="1000,max" class="footer__column">
-                     <div class="column__contacts">
-                        <h3 data-spoller class="contact__title">
+                  <div data-spollers="1000,max" className="footer__column">
+                     <div className="column__contacts">
+                        <h3 data-spoller className="contact__title">
                            Контакты
                         </h3>
-                        <ul class="contact__list">
-                           <li class="contact__item">
+                        <ul className="contact__list">
+                           <li className="contact__item">
                               Адрес:
                               <p>Москва, ул.Краснопролетарская, 36</p>
                            </li>
-                           <li class="contact__item">
+                           <li className="contact__item">
                               Электронная почта:
                               <p>technogreen@gmail.com</p>
                            </li>
-                           <li class="contact__item">
+                           <li className="contact__item">
                               Режим работы:
                               <p>Без выходных с 11:00 до 20:00</p>
                            </li>
                         </ul>
-                        <div data-da=".column-footer__order,1000,3" class="contact__social">
+                        <div data-da=".column-footer__order,1000,3" className="contact__social">
                            Давайте дружить
                            <ul>
-                              <li class="social__item">
-                                 <a class="_icon-youtube" href="#"></a>
+                              <li className="social__item">
+                                 <a className="_icon-youtube" href="#"></a>
                               </li>
-                              <li class="social__item">
-                                 <a class="_icon-vk" href="#"></a>
+                              <li className="social__item">
+                                 <a className="_icon-vk" href="#"></a>
                               </li>
-                              <li class="social__item">
-                                 <a class="_icon-instagram" href="#"></a>
+                              <li className="social__item">
+                                 <a className="_icon-instagram" href="#"></a>
                               </li>
-                              <li class="social__item">
-                                 <a class="_icon-facebook" href="#"></a>
+                              <li className="social__item">
+                                 <a className="_icon-facebook" href="#"></a>
                               </li>
                            </ul>
                         </div>
                      </div>
                   </div>
-                  <div data-spollers="1000,max" class="footer__column">
-                     <div class="column__help">
-                        <h3 data-spoller class="contact__title">
+                  <div data-spollers="1000,max" className="footer__column">
+                     <div className="column__help">
+                        <h3 data-spoller className="contact__title">
                            Помощь
                         </h3>
-                        <ul class="column__help-list">
-                           <li class="column__help-item">
+                        <ul className="column__help-list">
+                           <li className="column__help-item">
                               <a href="#">Как оформить заказ</a>
                            </li>
-                           <li class="column__help-item">
+                           <li className="column__help-item">
                               <a href="#">Способы оплаты</a>
                            </li>
-                           <li class="column__help-item">
+                           <li className="column__help-item">
                               <a href="#">Обмен, возврат, гарантия</a>
                            </li>
-                           <li class="column__help-item">
+                           <li className="column__help-item">
                               <a href="#">Статусы заказов</a>
                            </li>
-                           <li class="column__help-item">
+                           <li className="column__help-item">
                               <a href="#">Доставка</a>
                            </li>
                         </ul>
-                        <div data-da=".column-footer__order,1000,5" class="column__help-phone">
-                           <a class="column__help-tel" href="tel:+79008008020">+7 900 800 80 20</a>
-                           <a class="column__help-link _popup-link" href="#callback">Перезвоните мне</a>
+                        <div data-da=".column-footer__order,1000,5" className="column__help-phone">
+                           <a className="column__help-tel" href="tel:+79008008020">+7 900 800 80 20</a>
+                           <a className="column__help-link _popup-link" href="#callback">Перезвоните мне</a>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
-            <div class="footer__bottom">
+            <div className="footer__bottom">
                <p>2021 © ТехноГрин. Все права защищены</p>
             </div>
          </div>

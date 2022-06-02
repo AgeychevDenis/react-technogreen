@@ -1,0 +1,128 @@
+[
+   {
+      "id": 0,
+      "imageUrl": "https://i.ibb.co/ZKSffKf/card-1.jpg",
+      "title": "Газонокосилка аккумуляторная ЕКА 36БЛ",
+      "options": 2800,
+      "size": [
+         25,
+         65
+      ],
+      "width": 425,
+      "volume": 45,
+      "price": 7799,
+      "priceInMonth": 759
+   },
+   {
+      "id": 1,
+      "imageUrl": "https://i.ibb.co/47ZvGKB/card-2.jpg",
+      "title": "Газонокосилка аккумуляторная G40LV40",
+      "options": 3600,
+      "size": [
+         32,
+         85
+      ],
+      "width": 350,
+      "volume": 40,
+      "price": 11699,
+      "priceInMonth": 1349
+   },
+   {
+      "id": 2,
+      "imageUrl": "https://i.ibb.co/L6VWXDF/card-3.jpg",
+      "title": "Газонокосилка аккумуляторная MaxPower 32/36V P4B",
+      "options": 3800,
+      "size": [
+         20,
+         60
+      ],
+      "width": 320,
+      "volume": 30,
+      "price": 14999,
+      "priceInMonth": 1462
+   },
+   {
+      "id": 3,
+      "imageUrl": "https://i.ibb.co/pz3NwHQ/card-4.jpg",
+      "title": "Газонокосилка аккумуляторная DLM 4141Li",
+      "options": 3300,
+      "size": [
+         25,
+         75
+      ],
+      "width": 400,
+      "volume": 40,
+      "price": 15999,
+      "priceInMonth": 1560
+   },
+   {
+      "id": 4,
+      "imageUrl": "https://i.ibb.co/64KcdQ7/card-5.jpg",
+      "title": "Газонокосилка аккумуляторная EER 013V",
+      "options": 3000,
+      "size": [
+         30,
+         65
+      ],
+      "width": 410,
+      "volume": 50,
+      "price": 16599,
+      "priceInMonth": 1620
+   },
+   {
+      "id": 5,
+      "imageUrl": "https://i.ibb.co/CVbR4gQ/card-6.jpg",
+      "title": "Газонокосилка аккумуляторная Moweo 42.5 Li 119",
+      "options": 3200,
+      "size": [
+         40,
+         80
+      ],
+      "width": 360,
+      "volume": 35,
+      "price": 16999,
+      "priceInMonth": 1657
+   },
+   {
+      "id": 6,
+      "imageUrl": "https://i.ibb.co/B2yJTxW/card-7.jpg",
+      "title": "Газонокосилка аккумуляторная DLM382C",
+      "options": 3400,
+      "size": [
+         40,
+         70
+      ],
+      "width": 420,
+      "volume": 65,
+      "price": 19799,
+      "priceInMonth": 1730
+   },
+   {
+      "id": 7,
+      "imageUrl": "https://i.ibb.co/1dNjSyF/card-8.jpg",
+      "title": "Газонокосилка аккумуляторная PXC GE-CM",
+      "options": 2800,
+      "size": [
+         25,
+         75
+      ],
+      "width": 380,
+      "volume": 40,
+      "price": 20799,
+      "priceInMonth": 2078
+   },
+   {
+      "id": 8,
+      "imageUrl": "https://i.ibb.co/gV4WQDz/card-9.jpg",
+      "title": "Газонокосилка аккумуляторная G40LRTT3",
+      "options": 5000,
+      "size": [
+         35,
+         85
+      ],
+      "width": 490,
+      "volume": 45,
+      "price": 33999,
+      "priceInMonth": 3314
+   }
+]

@@ -80,9 +80,10 @@ h6 {
 	font-weight: inherit;
 	font-size: inherit;
 }
-//-webkit-overflow-scrolling: touch;
-/*
-&::-webkit-scrollbar {
-	display: none;
+.hidden {
+	overflow: hidden;
+	padding-right: 16px;
+	@media (max-width: 1330px) {
+		padding-right: 0px;
+	}
 }
-*/

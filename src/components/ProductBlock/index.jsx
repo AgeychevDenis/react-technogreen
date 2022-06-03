@@ -1,4 +1,8 @@
-const ProductBlock = ({ id, imageUrl, title, options, volume, size, width, price, priceInMounth }) => {
+import FormRating from "./FormRating";
+
+
+
+const ProductBlock = ({ id, imageUrl, title, options, volume, size, width, price, priceInMonth }) => {
 
    return (
       <div key={id} className="product-item__wrapper product-item">
@@ -25,29 +29,16 @@ const ProductBlock = ({ id, imageUrl, title, options, volume, size, width, price
                <span className="compare-checkbox checkbox">
                   <label className="checkbox__lable">
                      <input className="checkbox__compare" type="checkbox" name="" id="" />
-                     <span>Сравнить</span>
+                     <div className="checkbox__compare-div"></div>
+                     <span> Сравнить</span>
                   </label>
                </span>
-               <div className="form__rating">
-                  <div data-ajax="true" className="rating rating_set">
-                     <div className="rating__body">
-                        <div className="rating__active"></div>
-                        <div className="rating__items">
-                           <input type="radio" className="rating__item" value="1" name="rating" />
-                           <input type="radio" className="rating__item" value="2" name="rating" />
-                           <input type="radio" className="rating__item" value="3" name="rating" />
-                           <input type="radio" className="rating__item" value="4" name="rating" />
-                           <input type="radio" className="rating__item" value="5" name="rating" />
-                        </div>
-                     </div>
-                     <div className="rating__value">4.1</div>
-                  </div>
-               </div>
+               <FormRating />
             </div>
             <div className="product-item__inner">
                <div className="product-item__price _icon-clock">
                   {price} ₽
-                  <span className="product-item__installments">от {priceInMounth} ₽/мес</span>
+                  <span className="product-item__installments">от {priceInMonth} ₽/мес</span>
                </div>
                <div className="product-item__buttons">
                   <button type="button" className="product-item__btn _icon-heart"></button>

@@ -6,9 +6,9 @@ const MenuHeader = () => {
    const menuList = ['Снегоуборочная техника', 'Садовая техника', 'Мойки высокого давления', 'Электроинструменты', 'Компрессоры', 'Аксессуары и запчасти'];
 
    if (show) {
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add('hidden');
    } else {
-      document.body.style.overflow = '';
+      document.body.classList.remove('hidden');
    }
 
    return (

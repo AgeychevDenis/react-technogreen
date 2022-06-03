@@ -1,9 +1,6 @@
 .catalog-main {
    color: #000;
 }
-
-// $green: #63a800;
-// @import "mixins";
 //=====breadcrumbs===================================================================================================================================================
 
 .breadcrumbs {
@@ -56,8 +53,8 @@
 .catalog-main__image {
    margin-bottom: 40px;
 }
-.main-image img {
-   width: 100%;
+.main-image {
+   padding-bottom: calc(400 / 1300 * 100%);
 }
 
 //====catalog-main__filter====================================================================================================================================================
@@ -448,6 +445,7 @@
    // .checkbox__lable
    &__lable {
       cursor: pointer;
+      position: relative;
       -ms-user-select: none;
       -moz-user-select: none;
       -khtml-user-select: none;
@@ -455,7 +453,27 @@
    }
    // .checkbox__compare
    &__compare {
+      opacity: 0;
+      &-div {
+         width: 13px;
+         height: 13px;
+         display: inline-block;
+         border: 1px solid #000;
+         position: absolute;
+         top: 0;
+         left: 0;
+         padding-bottom: 5px;
+      }
    }
+}
+
+.checkbox__compare:checked + .checkbox__compare-div::after {
+   content: "✔";
+   font-size: 12px;
+   color: #000;
+   position: relative;
+   bottom: 3px;
+   left: 1px;
 }
 
 //<RATING>====================================================================================================

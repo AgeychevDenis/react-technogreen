@@ -1,5 +1,6 @@
 import MenuHeader from './MenuHeader';
 import logo from '../../assets/img//logo/logo-catalog.svg'
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
@@ -8,9 +9,9 @@ const Header = () => {
          <div className="header__container">
             <div className="header__wrapper menu-header">
                <div className="menu-header__logo">
-                  <a className="menu-header__logo-img" href="#">
+                  <Link to="/" className="menu-header__logo-img" href="#">
                      <img src={logo} alt="logo" />
-                  </a>
+                  </Link>
                   <MenuHeader />
                </div>
                {/* <form data-da=".menu-header__list,768,6" className="menu-header__form">
@@ -23,7 +24,7 @@ const Header = () => {
                <div className="menu-header__buttons">
                   <a className="menu-header__btn-link _icon-bar" href="#">Сравнить</a>
                   <a className="menu-header__btn-link _icon-heart" href="#">Избранное</a>
-                  <a className="menu-header__btn-link _icon-shopping-cart" href="#"><span id="basket">0</span>Корзина</a>
+                  <Link className="menu-header__btn-link _icon-shopping-cart" to="/cart">Корзина</Link>
                   <a className="menu-header__btn-link _icon-bell" href="#"></a>
                </div>
                <div className="menu-header__login">

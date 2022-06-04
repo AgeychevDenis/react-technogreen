@@ -11,7 +11,8 @@
       "width": 425,
       "volume": 45,
       "price": 7799,
-      "priceInMonth": 759
+      "priceInMonth": 759,
+      "score": 4
    },
    {
       "id": 1,
@@ -25,7 +26,8 @@
       "width": 350,
       "volume": 40,
       "price": 11699,
-      "priceInMonth": 1349
+      "priceInMonth": 1349,
+      "score": 3
    },
    {
       "id": 2,
@@ -39,7 +41,8 @@
       "width": 320,
       "volume": 30,
       "price": 14999,
-      "priceInMonth": 1462
+      "priceInMonth": 1462,
+      "score": 3
    },
    {
       "id": 3,
@@ -53,7 +56,8 @@
       "width": 400,
       "volume": 40,
       "price": 15999,
-      "priceInMonth": 1560
+      "priceInMonth": 1560,
+      "score": 5
    },
    {
       "id": 4,
@@ -67,7 +71,8 @@
       "width": 410,
       "volume": 50,
       "price": 16599,
-      "priceInMonth": 1620
+      "priceInMonth": 1620,
+      "score": 3
    },
    {
       "id": 5,
@@ -81,7 +86,8 @@
       "width": 360,
       "volume": 35,
       "price": 16999,
-      "priceInMonth": 1657
+      "priceInMonth": 1657,
+      "score": 1
    },
    {
       "id": 6,
@@ -95,7 +101,8 @@
       "width": 420,
       "volume": 65,
       "price": 19799,
-      "priceInMonth": 1730
+      "priceInMonth": 1730,
+      "score": 5
    },
    {
       "id": 7,
@@ -109,7 +116,8 @@
       "width": 380,
       "volume": 40,
       "price": 20799,
-      "priceInMonth": 2078
+      "priceInMonth": 2078,
+      "score": 4
    },
    {
       "id": 8,
@@ -123,6 +131,7 @@
       "width": 490,
       "volume": 45,
       "price": 33999,
-      "priceInMonth": 3314
+      "priceInMonth": 3314,
+      "score": 2
    }
 ]

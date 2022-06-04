@@ -1,8 +1,10 @@
-import FormRating from "./FormRating";
+import { useState, useEffect } from 'react'
+import Rating from 'react-rating'
+import IconStarEmpty from '../../assets/img/icons/star-empty.svg'
+import IconStarFull from '../../assets/img/icons/star-full.svg'
 
-
-
-const ProductBlock = ({ id, imageUrl, title, options, volume, size, width, price, priceInMonth }) => {
+const ProductBlock = ({ id, imageUrl, title, options, volume, size, width, price, priceInMonth, score }) => {
+   const [counter, setCounter] = useState(score);
 
    return (
       <div key={id} className="product-item__wrapper product-item">
@@ -33,7 +35,15 @@ const ProductBlock = ({ id, imageUrl, title, options, volume, size, width, price
                      <span> Сравнить</span>
                   </label>
                </span>
-               <FormRating />
+               <div className="form__rating">
+                  <Rating
+                     emptySymbol={<img src={IconStarEmpty} className="icon" />}
+                     fullSymbol={<img src={IconStarFull} className="icon" />}
+                     initialRating={counter}
+                     onChange={(score) => setCounter(score)}
+                  />
+                  <div className="rating__value">{counter}</div>
+               </div>
             </div>
             <div className="product-item__inner">
                <div className="product-item__price _icon-clock">

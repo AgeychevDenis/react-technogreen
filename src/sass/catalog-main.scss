@@ -52,6 +52,9 @@
 //===catalog-main__image=====================================================================================================================================================
 .catalog-main__image {
    margin-bottom: 40px;
+   @media (max-width: 550px) {
+      margin-bottom: 20px;
+   }
 }
 .main-image {
    padding-bottom: calc(400 / 1300 * 100%);
@@ -68,7 +71,13 @@
    &__filter-title {
       font-weight: 700;
       padding-bottom: 20px;
-      @include adaptiv-value("font-size", 36, 20, 1);
+      font-size: 36px;
+      @media (max-width: 990px) {
+         font-size: 30px;
+      }
+      @media (max-width: 550px) {
+         font-size: 24px;
+      }
    }
 }
 .filter-items {
@@ -228,9 +237,9 @@
 
 //========================================================================================================================================================
 .catalog-main {
-   @include adaptiv-value("margin-bottom", 100, 50, 1);
    // .catalog-main__list
    &__list {
+      color: #000;
    }
    // .catalog-main__body
    &__body {
@@ -396,7 +405,8 @@
    // .product-item__buttons
    &__buttons {
       width: 105px;
-      white-space: nowrap;
+      display: flex;
+      justify-content: space-around;
    }
    // .product-item__btn
    &__btn {
@@ -405,6 +415,7 @@
       border: 1px solid #c4c4c4;
       border-radius: 15px;
       transition: all 0.3s;
+      background-color: transparent;
       &:hover {
          background-color: $green;
          border: 1px solid $green;
@@ -421,11 +432,6 @@
       @media (max-width: 680px) {
          & + & {
             margin-left: 5px;
-         }
-      }
-      @media (max-width: 475px) {
-         & + & {
-            margin-left: 0px;
          }
       }
    }
@@ -647,18 +653,19 @@
          display: block;
       }
    }
-   // .aside__link
+   // .aside__btn-link
    &__btn-link {
       margin-top: 40px;
       display: block;
       width: 135px;
       height: 35px;
       border: 1px solid #63a800;
+      background-color: transparent;
       border-radius: 15px;
       color: $green;
       text-align: center;
       line-height: 32px;
-      transition: color 0.3s;
+      transition: all 0.3s;
       &:hover {
          background-color: $green;
          color: #fff;

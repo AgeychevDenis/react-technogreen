@@ -1,5 +1,10 @@
 .header {
    background-color: #63a800;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 5;
    // .header__container
    &__container {
       max-width: 1330px;
@@ -309,8 +314,4 @@
       left: 0;
       transform: translate(0%);
    }
-}
-
-body .menu-header__list._active {
-   overflow: hidden;
 }

@@ -2,18 +2,17 @@ import { useEffect, useState } from 'react';
 import ProductBlock from '../components/ProductBlock';
 import MainImg from '../components/MainImg';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Home = () => {
    const [items, setItems] = useState([])
 
    useEffect(() => {
-      fetch('https://6292ab089d159855f08d06e8.mockapi.io/items')
-         .then((res) => {
-            return res.json();
+      axios.get('https://6292ab089d159855f08d06e8.mockapi.io/items')
+         .then(res => {
+            setItems(res.data)
          })
-         .then((arr) => {
-            setItems(arr)
-         })
+
    }, [])
 
    return (

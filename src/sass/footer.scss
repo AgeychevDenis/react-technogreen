@@ -169,6 +169,10 @@
       font-weight: 700;
       margin-bottom: 24px;
       position: relative;
+      pointer-events: none;
+      @media (max-width: 1000px) {
+         pointer-events: inherit;
+      }
    }
    // .contact__list
    &__list {

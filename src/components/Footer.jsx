@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import ImgCheck from '../assets/img/icons/check.svg'
 import Imglogo from '../assets/img/logo/logo-catalog.svg';
@@ -15,9 +16,9 @@ const Footer = () => {
             <div className="footer__top">
                <div className="footer__rows">
                   <div className="footer__column">
-                     <a href="#" className="column__logo">
+                     <Link to="/" className="column__logo">
                         <img src={Imglogo} alt="logo" />
-                     </a>
+                     </Link>
                      <div className="column__insta">
                         <p>Наш хэштег в Instagram <br />
                            <a href="#">#technogreen</a>

@@ -5,12 +5,6 @@ const MenuHeader = () => {
 
    const menuList = ['Снегоуборочная техника', 'Садовая техника', 'Мойки высокого давления', 'Электроинструменты', 'Компрессоры', 'Аксессуары и запчасти'];
 
-   if (show) {
-      document.body.classList.add('hidden');
-   } else {
-      document.body.classList.remove('hidden');
-   }
-
    return (
       <div className="menu-header__spoiler">
          <nav className="menu-header__body">

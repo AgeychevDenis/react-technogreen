@@ -474,12 +474,15 @@
 }
 
 .checkbox__compare:checked + .checkbox__compare-div::after {
-   content: "✔";
+   content: "";
+   width: 13px;
+   height: 13px;
    font-size: 12px;
-   color: #000;
-   position: relative;
-   bottom: 3px;
-   left: 1px;
+   background-color: #63a800;
+   border: 1px solid #000;
+   position: absolute;
+   bottom: -1px;
+   left: -1px;
 }
 
 //<RATING>====================================================================================================

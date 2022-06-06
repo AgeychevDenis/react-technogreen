@@ -1,19 +1,25 @@
 import { useEffect, useState } from 'react';
-import ProductBlock from '../components/ProductBlock';
-import MainImg from '../components/MainImg';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+import Skeleton from '../components/ProductBlock/Skeleton';
+import ProductBlock from '../components/ProductBlock';
+import MainImg from '../components/MainImg';
+
 const Home = () => {
-   const [items, setItems] = useState([])
+   const [items, setItems] = useState([]);
+   const [isLoading, setIsLoading] = useState(true);
 
    useEffect(() => {
+      setIsLoading(true)
       axios.get('https://6292ab089d159855f08d06e8.mockapi.io/items')
          .then(res => {
             setItems(res.data)
+            setIsLoading(false)
          })
-
    }, [])
+
+   const arrAside = ['Товар со скидкой', 'Рассрочка', 'Выгодная цена']
 
    return (
       <>
@@ -40,25 +46,24 @@ const Home = () => {
                      <h4 className="aside__title">Акции</h4>
                      <div className="aside__box">
                         <ul className="aside__list">
-                           <li className="aside__item">
-                              <a href="#">Товар со скидкой</a>
-                           </li>
-                           <li className="aside__item">
-                              <a href="#">Рассрочка</a>
-                           </li>
-                           <li className="aside__item">
-                              <a href="#">Выгодная цена</a>
-                           </li>
+                           {arrAside.map((item, i) => (
+                              <li key={i} className="aside__item">
+                                 <Link to="/">{item}</Link>
+                              </li>
+                           ))}
                         </ul>
                         <a className="aside__btn-link" href="#">Все акции</a>
                      </div>
                   </div>
                   <div className="product-items">
-                     {items.map(obj => {
-                        const { id, ...objMore } = obj;
-
-                        return <ProductBlock key={id} {...objMore} />
-                     })}
+                     {
+                        isLoading
+                           ? [...new Array(6)].map((_, i) => <Skeleton key={i} />)
+                           : items.map(obj => {
+                              const { id, ...objMore } = obj;
+                              return <ProductBlock key={id} {...objMore} />
+                           })
+                     }
                      <div className="pagination">
                         <ul className="pagination__list">
                            <li className="pagination__item _active">

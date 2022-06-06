@@ -10,6 +10,8 @@ const Footer = () => {
    const [showContacts, setShowContacts] = useState(screenWidth ? false : true);
    const [showHelp, setShowHelp] = useState(screenWidth ? false : true);
 
+   const arrLinks = ['Как оформить заказ', 'Способы оплаты', 'Обмен, возврат, гарантия', 'Статусы заказов', 'Доставка'];
+
    return (
       <footer className="footer">
          <div className="container">
@@ -57,21 +59,11 @@ const Footer = () => {
                         </h3>
                         {showHelp ?
                            <ul className="column__help-list">
-                              <li className="column__help-item">
-                                 <a href="#">Как оформить заказ</a>
-                              </li>
-                              <li className="column__help-item">
-                                 <a href="#">Способы оплаты</a>
-                              </li>
-                              <li className="column__help-item">
-                                 <a href="#">Обмен, возврат, гарантия</a>
-                              </li>
-                              <li className="column__help-item">
-                                 <a href="#">Статусы заказов</a>
-                              </li>
-                              <li className="column__help-item">
-                                 <a href="#">Доставка</a>
-                              </li>
+                              {arrLinks.map((item, i) => (
+                                 <li key={i} className="column__help-item">
+                                    <a href="#">{item}</a>
+                                 </li>
+                              ))}
                            </ul>
                            : null
                         }

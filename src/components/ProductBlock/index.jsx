@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Rating from 'react-rating'
 import IconStarEmpty from '../../assets/img/icons/star-empty.svg'
 import IconStarFull from '../../assets/img/icons/star-full.svg'
@@ -47,8 +47,8 @@ const ProductBlock = ({ id, imageUrl, title, options, volume, size, width, price
             </div>
             <div className="product-item__inner">
                <div className="product-item__price _icon-clock">
-                  {price} ₽
-                  <span className="product-item__installments">от {priceInMonth} ₽/мес</span>
+                  {String(price).replace(/(\d{2})(\d{3})/g, '$1 $2').trim()} ₽
+                  <span className="product-item__installments">от {String(priceInMonth).replace(/(\d{1})(\d{2})/g, '$1 $2').trim()} ₽/мес</span>
                </div>
                <div className="product-item__buttons">
                   <button type="button" className="product-item__btn _icon-heart"></button>

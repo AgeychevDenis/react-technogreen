@@ -685,6 +685,7 @@
 .pagination {
    width: 100%;
    @include adaptiv-value("margin-top", 70, 45, 1);
+   order: 1;
    // .pagination__list
    &__list {
       display: flex;

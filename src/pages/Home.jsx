@@ -5,6 +5,7 @@ import axios from 'axios';
 import Skeleton from '../components/ProductBlock/Skeleton';
 import ProductBlock from '../components/ProductBlock';
 import MainImg from '../components/MainImg';
+import Filter from '../components/Filter'
 
 const Home = () => {
    const [items, setItems] = useState([]);
@@ -38,8 +39,10 @@ const Home = () => {
             </div>
          </div>
          <MainImg />
+         <Filter />
          <section className="catalog-main__list">
             <div className="container">
+
                <h1 className="catalog-main__filter-title">Садовая техника</h1>
                <div className="catalog-main__body">
                   <div className="aside">

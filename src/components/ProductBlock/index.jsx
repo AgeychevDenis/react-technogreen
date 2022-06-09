@@ -6,6 +6,9 @@ import IconStarFull from '../../assets/img/icons/star-full.svg'
 const ProductBlock = ({ id, imageUrl, title, options, volume, size, width, price, priceInMonth, score }) => {
    const [counter, setCounter] = useState(score);
 
+   const priceChange = (str) => String(str).replace(/(\d{2})(\d{3})/g, '$1 $2').trim();
+
+
    return (
       <div key={id} className="product-item__wrapper product-item">
          <a className="product-item__link" href="#">
@@ -47,8 +50,8 @@ const ProductBlock = ({ id, imageUrl, title, options, volume, size, width, price
             </div>
             <div className="product-item__inner">
                <div className="product-item__price _icon-clock">
-                  {String(price).replace(/(\d{2})(\d{3})/g, '$1 $2').trim()} ₽
-                  <span className="product-item__installments">от {String(priceInMonth).replace(/(\d{1})(\d{2})/g, '$1 $2').trim()} ₽/мес</span>
+                  {priceChange(price)} ₽
+                  <span className="product-item__installments">от {priceChange(priceInMonth)} ₽/мес</span>
                </div>
                <div className="product-item__buttons">
                   <button type="button" className="product-item__btn _icon-heart"></button>

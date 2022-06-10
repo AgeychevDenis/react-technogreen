@@ -10,6 +10,10 @@ import Filter from '../components/Filter'
 const Home = () => {
    const [items, setItems] = useState([]);
    const [isLoading, setIsLoading] = useState(true);
+   const [filterId, setFilterId] = useState(0);
+   const [sortType, setSortType] = useState(0);
+
+   // console.log(filterId);
 
    useEffect(() => {
       setIsLoading(true)
@@ -39,7 +43,7 @@ const Home = () => {
             </div>
          </div>
          <MainImg />
-         <Filter />
+         <Filter onClickFilter={(i) => setFilterId(i)} />
          <section className="catalog-main__list">
             <div className="container">
 

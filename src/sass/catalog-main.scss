@@ -66,6 +66,15 @@
    // .catalog-main__filter
    &__filter {
       @include adaptiv-value("margin-bottom", 55, 20, 1);
+      & form {
+         display: flex;
+         border-bottom: 1px solid #9b9b9b;
+         padding-bottom: 40px;
+         @media (max-width: 1000px) {
+            display: block;
+            padding-bottom: 20px;
+         }
+      }
    }
    // .catalog-main__filter-title
    &__filter-title {
@@ -83,10 +92,11 @@
 .filter-items {
    display: flex;
    flex-wrap: wrap;
+   flex: 2 1 70%;
 }
 .filter-item {
    width: 280px;
-   margin-right: 70px;
+   margin-right: 50px;
    margin-bottom: 20px;
    @media (max-width: 730px) {
       margin-right: 0;
@@ -141,7 +151,6 @@
          transition: all 0.3s ease 0s;
          width: 11px;
          height: 7px;
-         // background: url("../img/icons/select.svg") center / 100% no-repeat;
       }
    }
    &__input {
@@ -205,32 +214,64 @@
 .select._active .select__value:before {
    transform: rotate(-180deg);
 }
-.filter-btn {
-   flex: 1 1 100%;
-   text-align: end;
+.filter-sort {
+   flex: 1 1 15%;
    padding-bottom: 45px;
-   border-bottom: 1px solid #9b9b9b;
-   @media (max-width: 730px) {
-      text-align: start;
+   @media (max-width: 1000px) {
+      padding-top: 20px;
+      padding-bottom: 20px;
    }
-   button {
-      width: 140px;
-      border-radius: 20px;
-      height: 35px;
-      background-color: $green;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      outline: 0 none;
-      transition: color 0.3s;
-      @media (max-width: 730px) {
-         width: 100%;
+}
+
+.sort {
+   position: relative;
+   &__label {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      white-space: nowrap;
+      svg {
+         margin-right: 8px;
       }
-      &:hover {
-         background-color: #fff;
+
+      b {
+         margin-right: 8px;
+      }
+
+      span {
          color: $green;
-         border: 1px solid $green;
+         border-bottom: 1px dashed $green;
+         cursor: pointer;
+      }
+   }
+
+   &__popup {
+      position: absolute;
+      right: 0;
+      margin-top: 15px;
+      background: #ffffff;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+      border-radius: 10px;
+      overflow: hidden;
+      padding: 10px 0;
+      width: 160px;
+
+      ul {
+         overflow: hidden;
+         li {
+            padding: 12px 20px;
+            cursor: pointer;
+
+            &.active,
+            &:hover {
+               background: #63a80014;
+            }
+
+            &.active {
+               font-weight: bold;
+               color: $green;
+            }
+         }
       }
    }
 }

@@ -13,16 +13,16 @@ const Home = () => {
    const [filterId, setFilterId] = useState(0);
    const [sortType, setSortType] = useState(0);
 
-   // console.log(filterId);
+   console.log(filterId);
 
    useEffect(() => {
       setIsLoading(true)
-      axios.get('https://6292ab089d159855f08d06e8.mockapi.io/items')
+      axios.get('https://6292ab089d159855f08d06e8.mockapi.io/items?category=' + filterId)
          .then(res => {
             setItems(res.data)
             setIsLoading(false)
          })
-   }, [])
+   }, [filterId])
 
    const arrAside = ['Товар со скидкой', 'Рассрочка', 'Выгодная цена']
 

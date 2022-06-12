@@ -12,7 +12,10 @@
       "volume": 45,
       "price": 7799,
       "priceInMonth": 759,
-      "score": 4
+      "score": 4,
+      "voltage": 20,
+      "weight": 8.5,
+      "category": 1
    },
    {
       "id": 1,
@@ -27,7 +30,10 @@
       "volume": 40,
       "price": 11699,
       "priceInMonth": 1349,
-      "score": 3
+      "score": 3,
+      "voltage": 20,
+      "weight": 12,
+      "category": 2
    },
    {
       "id": 2,
@@ -42,7 +48,11 @@
       "volume": 30,
       "price": 14999,
       "priceInMonth": 1462,
-      "score": 3
+      "score": 3,
+      "mulching": true,
+      "voltage": 40,
+      "weight": 15,
+      "category": 20
    },
    {
       "id": 3,
@@ -57,7 +67,10 @@
       "volume": 40,
       "price": 15999,
       "priceInMonth": 1560,
-      "score": 5
+      "score": 5,
+      "voltage": 72,
+      "weight": 10,
+      "category": 20
    },
    {
       "id": 4,
@@ -72,7 +85,11 @@
       "volume": 50,
       "price": 16599,
       "priceInMonth": 1620,
-      "score": 3
+      "score": 3,
+      "mulching": true,
+      "voltage": 20,
+      "weight": 14,
+      "category": 21
    },
    {
       "id": 5,
@@ -87,7 +104,10 @@
       "volume": 35,
       "price": 16999,
       "priceInMonth": 1657,
-      "score": 1
+      "score": 1,
+      "voltage": 18,
+      "weight": 10,
+      "category": 20
    },
    {
       "id": 6,
@@ -102,7 +122,9 @@
       "volume": 65,
       "price": 19799,
       "priceInMonth": 1730,
-      "score": 5
+      "score": 5,
+      "voltage": 20,
+      "weight": 17
    },
    {
       "id": 7,
@@ -117,7 +139,10 @@
       "volume": 40,
       "price": 20799,
       "priceInMonth": 2078,
-      "score": 4
+      "score": 4,
+      "mulching": true,
+      "voltage": 20,
+      "weight": 13
    },
    {
       "id": 8,
@@ -132,6 +157,8 @@
       "volume": 45,
       "price": 33999,
       "priceInMonth": 3314,
-      "score": 2
+      "score": 2,
+      "voltage": 72,
+      "weight": 15
    }
 ]

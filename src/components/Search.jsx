@@ -1,8 +1,12 @@
+import { useContext } from 'react';
 import { useState } from 'react';
+import { SearchContext } from '../App';
 import iconClose from '../assets/img/icons/close.svg'
 
-const Search = ({ searchValue, setSearchValue }) => {
+const Search = () => {
    const [show, setShow] = useState(false);
+
+   const { searchValue, setSearchValue } = useContext(SearchContext);
 
    return (
       <form className={show ? "menu-header__form show" : "menu-header__form"}>

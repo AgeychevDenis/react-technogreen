@@ -280,11 +280,15 @@
       position: relative;
       flex: 1 1 100%;
       span {
+         pointer-events: none;
          &::before {
             position: absolute;
             top: 9px;
             left: 11px;
             color: #929292;
+         }
+         @media (max-width: 750px) {
+            pointer-events: auto;
          }
       }
    }

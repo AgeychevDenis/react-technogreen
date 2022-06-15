@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -8,8 +8,10 @@ import MainImg from '../components/MainImg';
 import Filter from '../components/Filter'
 import Sort from '../components/Sort';
 import Pagination from '../components/Pagination';
+import { SearchContext } from '../App';
 
-const Home = ({ searchValue }) => {
+const Home = () => {
+   const { searchValue } = useContext(SearchContext);
    const [items, setItems] = useState([]);
    const [isLoading, setIsLoading] = useState(true);
    const [filterId, setFilterId] = useState(0);

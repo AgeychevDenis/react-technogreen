@@ -3,7 +3,7 @@ import logo from '../../assets/img//logo/logo-catalog.svg'
 import { Link } from 'react-router-dom';
 import Search from '../Search';
 
-const Header = ({ searchValue, setSearchValue }) => {
+const Header = () => {
 
    return (
       <header className="header">
@@ -15,7 +15,7 @@ const Header = ({ searchValue, setSearchValue }) => {
                   </Link>
                   <MenuHeader />
                </div>
-               <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+               <Search />
                <div className="menu-header__buttons">
                   <a className="menu-header__btn-link _icon-bar" href="#">Сравнить</a>
                   <a className="menu-header__btn-link _icon-heart" href="#">Избранное</a>

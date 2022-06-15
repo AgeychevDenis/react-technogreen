@@ -7,11 +7,13 @@ import ProductBlock from '../components/ProductBlock';
 import MainImg from '../components/MainImg';
 import Filter from '../components/Filter'
 import Sort from '../components/Sort';
+import Pagination from '../components/Pagination';
 
 const Home = ({ searchValue }) => {
    const [items, setItems] = useState([]);
    const [isLoading, setIsLoading] = useState(true);
    const [filterId, setFilterId] = useState(0);
+   const [currentPage, setCurrentPage] = useState(1);
    const [sortType, setSortType] = useState({
       name: 'сначала с лучшей оценкой',
       sortProperty: 'rating'
@@ -26,13 +28,13 @@ const Home = ({ searchValue }) => {
       const search = searchValue ? `&search=${searchValue}` : '';
 
       axios.get(
-         `https://6292ab089d159855f08d06e8.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}${search}`
+         `https://6292ab089d159855f08d06e8.mockapi.io/items?page=${currentPage}&limit=6&${category}&sortBy=${sortBy}&order=${order}${search}`
       )
          .then(res => {
             setItems(res.data)
             setIsLoading(false)
          })
-   }, [filterId, sortType, searchValue])
+   }, [filterId, sortType, searchValue, currentPage])
 
    const arrAside = ['Товар со скидкой', 'Рассрочка', 'Выгодная цена'];
 
@@ -88,33 +90,9 @@ const Home = ({ searchValue }) => {
                      {
                         isLoading ? skeleton : products
                      }
-                     <div className="pagination">
-                        <ul className="pagination__list">
-                           <li className="pagination__item _active">
-                              <a href="#">1</a>
-                           </li>
-                           <li className="pagination__item">
-                              <a href="#">2</a>
-                           </li>
-                           <li className="pagination__item">
-                              <a href="#">3</a>
-                           </li>
-                           <li className="pagination__item">
-                              <a href="#">4</a>
-                           </li>
-                           <li className="pagination__item">
-                              <a href="#">5</a>
-                           </li>
-                           <li className="pagination__item">
-                              <span>...</span>
-                           </li>
-                           <li className="pagination__item">
-                              <a href="#">8</a>
-                           </li>
-                        </ul>
-                     </div>
                   </div>
                </div>
+               <Pagination onChangePage={(number) => setCurrentPage(number)} />
             </div>
          </section>
       </>

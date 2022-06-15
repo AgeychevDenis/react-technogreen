@@ -2,166 +2,172 @@
    {
       "id": 0,
       "imageUrl": "https://i.ibb.co/ZKSffKf/card-1.jpg",
-      "title": "Газонокосилка аккумуляторная ЕКА 36БЛ",
-      "options": 2800,
-      "size": [
-         25,
-         65
-      ],
-      "width": 425,
+      "title": "ЕКА 36БЛ",
+      "options": 1200,
       "volume": 45,
+      "voltage": 40,
       "price": 7799,
       "priceInMonth": 759,
       "rating": 4,
-      "voltage": 20,
       "weight": 8.5,
-      "category": 3
+      "category": [
+         "1000-1500",
+         "Mulching-yes",
+         "40B",
+         "20-40l",
+         "9kg"
+      ]
    },
    {
       "id": 1,
       "imageUrl": "https://i.ibb.co/47ZvGKB/card-2.jpg",
-      "title": "Газонокосилка аккумуляторная G40LV40",
-      "options": 3600,
-      "size": [
-         32,
-         85
-      ],
-      "width": 350,
+      "title": "G40LV40",
+      "options": 1500,
       "volume": 40,
+      "voltage": 40,
       "price": 11699,
       "priceInMonth": 1349,
       "rating": 3,
-      "voltage": 20,
       "weight": 12,
-      "category": 3
+      "category": [
+         "1000-1500",
+         "Mulching-no",
+         "40B",
+         "40-60l",
+         "10-15kg"
+      ]
    },
    {
       "id": 2,
       "imageUrl": "https://i.ibb.co/L6VWXDF/card-3.jpg",
-      "title": "Газонокосилка аккумуляторная MaxPower 32/36V P4B",
-      "options": 3800,
-      "size": [
-         20,
-         60
-      ],
-      "width": 320,
+      "title": "MaxPower 32/36V P4B",
+      "options": 1000,
       "volume": 30,
+      "voltage": 72,
       "price": 14999,
       "priceInMonth": 1462,
       "rating": 3,
-      "mulching": true,
-      "voltage": 40,
-      "weight": 15,
-      "category": 4
+      "weight": 16,
+      "category": [
+         "500-1000",
+         "Mulching-yes",
+         "72B",
+         "20-40l",
+         "15-25kg"
+      ]
    },
    {
       "id": 3,
       "imageUrl": "https://i.ibb.co/pz3NwHQ/card-4.jpg",
-      "title": "Газонокосилка аккумуляторная DLM 4141Li",
-      "options": 3300,
-      "size": [
-         25,
-         75
-      ],
-      "width": 400,
+      "title": "DLM 4141Li",
+      "options": 1200,
       "volume": 40,
+      "voltage": 72,
       "price": 15999,
       "priceInMonth": 1560,
       "rating": 5,
-      "voltage": 72,
       "weight": 10,
-      "category": 5
+      "category": [
+         "1000-1500",
+         "Mulching-no",
+         "72B",
+         "20-40l",
+         "9kg"
+      ]
    },
    {
       "id": 4,
       "imageUrl": "https://i.ibb.co/64KcdQ7/card-5.jpg",
-      "title": "Газонокосилка аккумуляторная EER 013V",
+      "title": "EER 013V",
       "options": 3000,
-      "size": [
-         30,
-         65
-      ],
-      "width": 410,
       "volume": 50,
+      "voltage": 40,
       "price": 16599,
       "priceInMonth": 1620,
       "rating": 3,
-      "mulching": true,
-      "voltage": 20,
       "weight": 14,
-      "category": 5
+      "category": [
+         "2001",
+         "Mulching-yes",
+         "40B",
+         "40-60l",
+         "10-15kg"
+      ]
    },
    {
       "id": 5,
       "imageUrl": "https://i.ibb.co/CVbR4gQ/card-6.jpg",
-      "title": "Газонокосилка аккумуляторная Moweo 42.5 Li 119",
+      "title": "Moweo 42.5 Li 119",
       "options": 3200,
-      "size": [
-         40,
-         80
-      ],
-      "width": 360,
       "volume": 35,
+      "voltage": 72,
       "price": 16999,
       "priceInMonth": 1657,
       "rating": 1,
-      "voltage": 18,
       "weight": 10,
-      "category": 4
+      "category": [
+         "2001",
+         "Mulching-no",
+         "72B",
+         "20-40l",
+         "9kg"
+      ]
    },
    {
       "id": 6,
       "imageUrl": "https://i.ibb.co/B2yJTxW/card-7.jpg",
-      "title": "Газонокосилка аккумуляторная DLM382C",
+      "title": "DLM382C",
       "options": 3400,
-      "size": [
-         40,
-         70
-      ],
-      "width": 420,
       "volume": 65,
+      "voltage": 40,
       "price": 19799,
       "priceInMonth": 1730,
       "rating": 5,
-      "voltage": 20,
       "weight": 17,
-      "category": 3
+      "category": [
+         "2001",
+         "Mulching-yes",
+         "40B",
+         "40-60l",
+         "15-25kg"
+      ]
    },
    {
       "id": 7,
       "imageUrl": "https://i.ibb.co/1dNjSyF/card-8.jpg",
-      "title": "Газонокосилка аккумуляторная PXC GE-CM",
-      "options": 2800,
-      "size": [
-         25,
-         75
-      ],
-      "width": 380,
+      "title": "PXC GE-CM",
+      "options": 1570,
       "volume": 40,
+      "voltage": 40,
       "price": 20799,
       "priceInMonth": 2078,
       "rating": 4,
-      "mulching": true,
-      "voltage": 20,
       "weight": 13,
-      "category": 2
+      "category": [
+         "1500-2000",
+         "Mulching-no",
+         "40B",
+         "20-40l",
+         "10-15kg"
+      ]
    },
    {
       "id": 8,
       "imageUrl": "https://i.ibb.co/gV4WQDz/card-9.jpg",
-      "title": "Газонокосилка аккумуляторная G40LRTT3",
+      "title": "G40LRTT3",
       "options": 5000,
-      "size": [
-         35,
-         85
-      ],
-      "width": 490,
       "volume": 45,
+      "voltage": 40,
       "price": 33999,
       "priceInMonth": 3314,
       "rating": 2,
-      "voltage": 72,
       "weight": 15,
-      "category": 2
+      "category": [
+         "2001",
+         "Mulching-yes",
+         "40B",
+         "40-60l",
+         "10-15kg"
+      ]
    }
 ]

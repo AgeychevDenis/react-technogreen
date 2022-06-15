@@ -4,7 +4,7 @@ const Sort = ({ value, onChangeSort }) => {
    const [open, setOpen] = useState(false);
    const sort = [
       { name: 'сначала с лучшей оценкой', sortProperty: 'rating' },
-      { name: 'сначала с низкой оценкой', sortProperty: '-rating' },
+      { name: 'сначала с худшей оценкой', sortProperty: '-rating' },
       { name: 'сначала дорогие', sortProperty: 'price' },
       { name: 'сначала недорогие', sortProperty: '-price' },
       { name: 'по наименованию', sortProperty: 'title' }

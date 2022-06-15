@@ -3,7 +3,7 @@ import Rating from 'react-rating'
 import IconStarEmpty from '../../assets/img/icons/star-empty.svg'
 import IconStarFull from '../../assets/img/icons/star-full.svg'
 
-const ProductBlock = ({ id, imageUrl, title, options, volume, size, width, price, priceInMonth, rating }) => {
+const ProductBlock = ({ id, imageUrl, title, options, volume, voltage, weight, price, priceInMonth, rating }) => {
    const [counter, setCounter] = useState(rating);
 
    const priceChange = (str) => String(str).replace(/(\d{2})(\d{3})/g, '$1 $2').trim();
@@ -18,14 +18,14 @@ const ProductBlock = ({ id, imageUrl, title, options, volume, size, width, price
                <p className="product-item__hover-text">посмотреть товар</p>
             </div>
             <h4 className="product-item__title">
-               {title}
-               <span> Техногрин </span>
-               <b>[</b>
-               <span> {options}</span> об/мин,
-               <span> {volume}</span> л, от
-               <span> {size[0]}</span> мм до
-               <span> {size[1]}</span> мм, ширина
-               <span> {width}</span> мм
+               Газонокосилка аккумуляторная
+               <span> {title} </span>
+               Техногрин
+               <b> [</b>
+               <span>{options}</span> об/мин,
+               <span> {voltage}</span> В,
+               <span> {volume}</span> л, вес
+               <span> {weight}</span> кг
                <b>]</b>
             </h4>
          </a>

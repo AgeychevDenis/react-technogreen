@@ -8,7 +8,7 @@ import MainImg from '../components/MainImg';
 import Filter from '../components/Filter'
 import Sort from '../components/Sort';
 
-const Home = () => {
+const Home = ({ searchValue }) => {
    const [items, setItems] = useState([]);
    const [isLoading, setIsLoading] = useState(true);
    const [filterId, setFilterId] = useState(0);
@@ -22,18 +22,25 @@ const Home = () => {
 
       const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
       const sortBy = sortType.sortProperty.replace('-', '');
-      const category = filterId > 0 ? `category=${filterId}` : '';
+      const category = filterId.length > 0 ? `category=${filterId}` : '';
+      const search = searchValue ? `&search=${searchValue}` : '';
 
       axios.get(
-         `https://6292ab089d159855f08d06e8.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}`
+         `https://6292ab089d159855f08d06e8.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}${search}`
       )
          .then(res => {
             setItems(res.data)
             setIsLoading(false)
          })
-   }, [filterId, sortType])
+   }, [filterId, sortType, searchValue])
 
-   const arrAside = ['Товар со скидкой', 'Рассрочка', 'Выгодная цена']
+   const arrAside = ['Товар со скидкой', 'Рассрочка', 'Выгодная цена'];
+
+   const skeleton = [...new Array(6)].map((_, i) => <Skeleton key={i} />)
+   const products = items.map(obj => {
+      const { id, ...objMore } = obj;
+      return <ProductBlock key={id} {...objMore} />
+   })
 
    return (
       <>
@@ -62,7 +69,6 @@ const Home = () => {
          </section >
          <section className="catalog-main__list">
             <div className="container">
-
                <h1 className="catalog-main__filter-title">Садовая техника</h1>
                <div className="catalog-main__body">
                   <div className="aside">
@@ -80,12 +86,7 @@ const Home = () => {
                   </div>
                   <div className="product-items">
                      {
-                        isLoading
-                           ? [...new Array(6)].map((_, i) => <Skeleton key={i} />)
-                           : items.map(obj => {
-                              const { id, ...objMore } = obj;
-                              return <ProductBlock key={id} {...objMore} />
-                           })
+                        isLoading ? skeleton : products
                      }
                      <div className="pagination">
                         <ul className="pagination__list">

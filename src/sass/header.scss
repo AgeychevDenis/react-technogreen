@@ -177,11 +177,12 @@
       max-width: 340px;
       width: 100%;
       position: relative;
-      @media (max-width: 768px) {
-         padding-top: 15px;
-      }
-      @media (max-width: 400px) {
-         max-width: 320px;
+      display: flex;
+      button img {
+         width: 20px;
+         position: absolute;
+         right: 9px;
+         top: 8px;
       }
    }
    // .menu-header__input
@@ -190,7 +191,8 @@
       height: 35px;
       border-radius: 15px;
       background-color: #fff;
-      padding-left: 20px;
+      padding-left: 40px;
+      outline: none;
    }
    // .menu-header__item
    &__item {
@@ -256,20 +258,13 @@
    }
    // .menu-header__search
    &__search {
-   }
-   // .menu-header__search-btn
-   &__search-btn {
-      position: absolute;
-      right: 17px;
-      top: 9px;
-      color: #929292;
-      transition: all 0.3s ease 0s;
-      outline: 0 none;
-      &:hover {
-         color: #63a800;
-      }
-      @media (max-width: 768px) {
-         top: 26px;
+      position: relative;
+      flex: 1 1 100%;
+      &::before {
+         position: absolute;
+         top: 9px;
+         left: 11px;
+         color: #929292;
       }
    }
    // .menu-header__buttons

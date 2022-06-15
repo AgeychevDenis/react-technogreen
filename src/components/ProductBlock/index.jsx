@@ -3,8 +3,8 @@ import Rating from 'react-rating'
 import IconStarEmpty from '../../assets/img/icons/star-empty.svg'
 import IconStarFull from '../../assets/img/icons/star-full.svg'
 
-const ProductBlock = ({ id, imageUrl, title, options, volume, size, width, price, priceInMonth, score }) => {
-   const [counter, setCounter] = useState(score);
+const ProductBlock = ({ id, imageUrl, title, options, volume, size, width, price, priceInMonth, rating }) => {
+   const [counter, setCounter] = useState(rating);
 
    const priceChange = (str) => String(str).replace(/(\d{2})(\d{3})/g, '$1 $2').trim();
 
@@ -43,7 +43,7 @@ const ProductBlock = ({ id, imageUrl, title, options, volume, size, width, price
                      emptySymbol={<img src={IconStarEmpty} className="icon" />}
                      fullSymbol={<img src={IconStarFull} className="icon" />}
                      initialRating={counter}
-                     onChange={(score) => setCounter(score)}
+                     onChange={(rating) => setCounter(rating)}
                   />
                   <div className="rating__value">{counter}</div>
                </div>

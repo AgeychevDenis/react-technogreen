@@ -1,129 +1,132 @@
 [
    [
       {
-         "value": 1,
+         "value": 0,
          "label": "Есть",
          "title": "Самоходная"
       },
       {
          "value": 2,
-         "label": "Нет"
+         "label": "Нет",
+         "isDisabled": true
       }
    ],
    [
       {
-         "value": 3,
+         "value": 0,
          "label": "Любой",
          "title": "Мульчирование"
       },
       {
-         "value": 4,
+         "value": 1,
          "label": "Есть"
       },
       {
-         "value": 5,
+         "value": 0,
          "label": "Нет"
       }
    ],
    [
       {
-         "value": 6,
+         "value": 0,
          "label": "Все",
          "title": "Напряжение аккумулятора"
       },
       {
-         "value": 7,
+         "value": 1,
          "label": "18 В"
       },
       {
-         "value": 8,
+         "value": 3,
          "label": "20 В"
       },
       {
-         "value": 9,
+         "value": 3,
          "label": "40 В"
       },
       {
-         "value": 10,
+         "value": 2,
          "label": "72 В"
       }
    ],
    [
       {
-         "value": 11,
+         "value": 0,
          "label": "Все",
          "title": "Объем травосборника (л)"
       },
       {
-         "value": 12,
+         "value": 1,
          "label": "Менее 20",
          "isDisabled": true
       },
       {
-         "value": 13,
+         "value": 2,
          "label": "20.1 - 40"
       },
       {
-         "value": 14,
+         "value": 3,
          "label": "40.1 - 60"
       },
       {
-         "value": 15,
+         "value": 0,
          "label": "60.1 - и более",
          "isDisabled": true
       }
    ],
    [
       {
-         "value": 16,
+         "value": 0,
          "label": "Все",
          "title": "Мощность (Об/мин)"
       },
       {
-         "value": 17,
-         "label": "Менее 500"
+         "value": 2,
+         "label": "Менее 500",
+         "isDisabled": true
       },
       {
-         "value": 18,
+         "value": 1,
          "label": "500.01 - 1000"
       },
       {
-         "value": 19,
+         "value": 2,
          "label": "1000.01 - 1500"
       },
       {
-         "value": 20,
+         "value": 3,
          "label": "1500.01 - 2000"
       },
       {
-         "value": 21,
+         "value": 3,
          "label": "2000.01. и более"
       }
    ],
    [
       {
-         "value": 22,
+         "value": 0,
          "label": "Все",
          "title": "Вес (кг)"
       },
       {
-         "value": 23,
-         "label": "Менее 10"
+         "value": 3,
+         "label": "Менее 10",
+         "isDisabled": true
       },
       {
-         "value": 24,
+         "value": 3,
          "label": "10.01 - 15"
       },
       {
-         "value": 25,
+         "value": 4,
          "label": "15.01 - 25"
       },
       {
-         "value": 26,
+         "value": 5,
          "label": "25.01 - 35"
       },
       {
-         "value": 27,
+         "value": 2,
          "label": "35.01. и более"
       }
    ]

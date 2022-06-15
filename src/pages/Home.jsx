@@ -6,23 +6,32 @@ import Skeleton from '../components/ProductBlock/Skeleton';
 import ProductBlock from '../components/ProductBlock';
 import MainImg from '../components/MainImg';
 import Filter from '../components/Filter'
+import Sort from '../components/Sort';
 
 const Home = () => {
    const [items, setItems] = useState([]);
    const [isLoading, setIsLoading] = useState(true);
    const [filterId, setFilterId] = useState(0);
-   const [sortType, setSortType] = useState(0);
-
-   console.log(filterId);
+   const [sortType, setSortType] = useState({
+      name: 'сначала с лучшей оценкой',
+      sortProperty: 'rating'
+   });
 
    useEffect(() => {
-      setIsLoading(true)
-      axios.get('https://6292ab089d159855f08d06e8.mockapi.io/items?category=' + filterId)
+      setIsLoading(true);
+
+      const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
+      const sortBy = sortType.sortProperty.replace('-', '');
+      const category = filterId > 0 ? `category=${filterId}` : '';
+
+      axios.get(
+         `https://6292ab089d159855f08d06e8.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}`
+      )
          .then(res => {
             setItems(res.data)
             setIsLoading(false)
          })
-   }, [filterId])
+   }, [filterId, sortType])
 
    const arrAside = ['Товар со скидкой', 'Рассрочка', 'Выгодная цена']
 
@@ -43,7 +52,14 @@ const Home = () => {
             </div>
          </div>
          <MainImg />
-         <Filter onClickFilter={(i) => setFilterId(i)} />
+         <section className="catalog-main__filter">
+            <div className="container">
+               <form>
+                  <Filter onClickFilter={(i) => setFilterId(i)} />
+                  <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
+               </form>
+            </div >
+         </section >
          <section className="catalog-main__list">
             <div className="container">
 

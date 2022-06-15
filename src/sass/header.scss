@@ -86,6 +86,12 @@
          right: 10px;
          top: 54%;
       }
+      @media (max-width: 990px) {
+         background-color: transparent !important;
+         &:hover {
+            background-color: transparent !important;
+         }
+      }
 
       &._active::before {
          transform: translate(0, -50%) rotate(45deg);

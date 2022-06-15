@@ -725,32 +725,34 @@
 .pagination {
    width: 100%;
    @include adaptiv-value("margin-top", 70, 45, 1);
-   order: 1;
-   // .pagination__list
-   &__list {
-      display: flex;
-      justify-content: center;
-   }
+   display: flex;
+   justify-content: center;
    // .pagination__item
-   &__item {
-      padding: 6px 12px;
-      border: 2px solid transparent;
+   & li {
       margin: 0 4px;
       font-size: 18px;
       line-height: 22px;
       border-radius: 2px;
-      a,
-      span {
-         color: #c4c4c4;
+      padding: 6px 0px;
+      border: 2px solid $green;
+      transition: color 0.3s, background-color 0.3s;
+      &:hover {
+         background-color: $green;
       }
-      &._active {
-         border: 2px solid $green;
-         a {
-            color: $green;
+      a {
+         color: $green;
+         padding: 12px 12px;
+         cursor: pointer;
+         transition: color 0.3s;
+         &:hover {
+            color: #fff;
          }
       }
-      @media (max-width: 440px) {
-         margin: 0;
+      &.selected {
+         background-color: $green;
+         a {
+            color: #fff;
+         }
       }
    }
 }

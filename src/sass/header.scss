@@ -178,11 +178,17 @@
       width: 100%;
       position: relative;
       display: flex;
+      transition: flex-shrink 0.4s, flex-basis 0.4s;
       button img {
          width: 20px;
          position: absolute;
          right: 9px;
          top: 8px;
+      }
+      @media (max-width: 750px) {
+         &.show {
+            flex: 0 0 85%;
+         }
       }
    }
    // .menu-header__input
@@ -193,6 +199,13 @@
       background-color: #fff;
       padding-left: 40px;
       outline: none;
+      transition: width 0.4s;
+      @media (max-width: 750px) {
+         width: 0%;
+         &.show {
+            width: 100%;
+         }
+      }
    }
    // .menu-header__item
    &__item {
@@ -260,11 +273,13 @@
    &__search {
       position: relative;
       flex: 1 1 100%;
-      &::before {
-         position: absolute;
-         top: 9px;
-         left: 11px;
-         color: #929292;
+      span {
+         &::before {
+            position: absolute;
+            top: 9px;
+            left: 11px;
+            color: #929292;
+         }
       }
    }
    // .menu-header__buttons
@@ -296,6 +311,9 @@
       &:hover {
          background-color: #d7ff9f;
          color: #63a800;
+      }
+      @media (max-width: 375px) {
+         width: 66px;
       }
    }
 }

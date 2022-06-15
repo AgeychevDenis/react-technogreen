@@ -1,16 +1,20 @@
+import { useState } from 'react';
 import iconClose from '../assets/img/icons/close.svg'
 
 const Search = ({ searchValue, setSearchValue }) => {
+   const [show, setShow] = useState(false);
+
    return (
-      <form className="menu-header__form">
-         <div className="menu-header__search _icon-search">
+      <form className={show ? "menu-header__form show" : "menu-header__form"}>
+         <div className="menu-header__search">
+            <span onClick={() => setShow(!show)} className='_icon-search'></span>
             <input
                value={searchValue}
                onChange={(event) => setSearchValue(event.target.value)}
                type="text"
                name="menu-header"
                placeholder="Поиск товара"
-               className="menu-header__input"
+               className={show ? "menu-header__input show" : "menu-header__input"}
             />
          </div>
          {searchValue && (

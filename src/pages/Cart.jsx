@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from "react-redux";
 
 import ImgCart from '../assets/img/icons/shopping-cart.svg';
 import ImgTrash from '../assets/img/icons/trash-o.svg';
-import ImgItem from '../assets/img/catalog-main/product__card-garden/card-1.jpg'
+import CartItem from './CartItem';
 
 const Cart = () => {
+   const dispatch = useDispatch();
+   const items = useSelector(state => state.cart.items);
+
    return (
       <div className="cart">
          <div className="container">
@@ -20,24 +24,9 @@ const Cart = () => {
                   </div>
                </div>
                <div className="cart__main">
-                  <div className="cart-item">
-                     <div className="cart-item__img">
-                        <img src={ImgItem} alt="item" />
-                     </div>
-                     <div className="cart-item__discription">
-                        <h4 className="cart-item__title">
-                           Газонокосилка аккумуляторная ЕКА 36БЛ
-                        </h4>
-                        <p>2800 об/мин, 45 л, ширина 425 мм</p>
-                     </div>
-                     <div className="cart-item__counter">
-                        <button className="cart-item__minus">–</button>
-                        <span className="cart-item__num">4</span>
-                        <button className="cart-item__plus">+</button>
-                     </div>
-                     <span className="cart-item__total">15999 ₽</span>
-                     <button className='cart-item__delete'>&#10006;</button>
-                  </div>
+                  {items.map((item) => (
+                     <CartItem key={item.id} {...item} />
+                  ))}
                </div>
                <div className="cart__bottom">
                   <p className="cart__total-item">

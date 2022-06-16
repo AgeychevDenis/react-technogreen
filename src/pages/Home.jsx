@@ -50,6 +50,7 @@ const Home = () => {
          })
    }
 
+
    useEffect(() => {
       if (isMounted.current) {
          const queryString = qs.stringify({
@@ -80,6 +81,8 @@ const Home = () => {
    }, []);
 
    useEffect(() => {
+      window.scrollTo(0, 0);
+
       if (!isSearch.current) {
          fetchProduct()
       }
@@ -92,10 +95,7 @@ const Home = () => {
    const arrAside = ['Товар со скидкой', 'Рассрочка', 'Выгодная цена'];
 
    const skeleton = [...new Array(6)].map((_, i) => <Skeleton key={i} />)
-   const products = items.map(obj => {
-      const { id, ...objMore } = obj;
-      return <ProductBlock key={id} {...objMore} />
-   })
+   const products = items.map(obj => <ProductBlock key={obj.id} {...obj} />)
 
    return (
       <>

@@ -5,8 +5,7 @@ const initialState = {
    filterId: 0,
    currentPage: 1,
    sort: {
-      name: 'сначала с лучшей оценкой',
-      sortProperty: 'rating'
+      name: 'сначала с лучшей оценкой', sortProperty: 'rating'
    }
 }
 

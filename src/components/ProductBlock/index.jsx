@@ -2,12 +2,25 @@ import { useState } from 'react'
 import Rating from 'react-rating'
 import IconStarEmpty from '../../assets/img/icons/star-empty.svg'
 import IconStarFull from '../../assets/img/icons/star-full.svg'
+import { useSelector, useDispatch } from 'react-redux'
+import { addItem } from '../../redux/slices/cartSlice'
 
 const ProductBlock = ({ id, imageUrl, title, options, volume, voltage, weight, price, priceInMonth, rating }) => {
+   const dispatch = useDispatch();
+   const addedCount = useSelector(state => state.cart.items.find(obj => obj.id === id))
    const [counter, setCounter] = useState(rating);
 
-   const priceChange = (str) => String(str).replace(/(\d{2})(\d{3})/g, '$1 $2').trim();
+   const onClickAdd = () => {
+      const item = {
+         id,
+         title,
+         price,
+         imageUrl
+      };
+      dispatch(addItem(item))
+   }
 
+   const priceChange = (str) => String(str).replace(/(\d{2})(\d{3})/g, '$1 $2').trim();
 
    return (
       <div key={id} className="product-item__wrapper product-item">
@@ -55,7 +68,7 @@ const ProductBlock = ({ id, imageUrl, title, options, volume, voltage, weight, p
                </div>
                <div className="product-item__buttons">
                   <button type="button" className="product-item__btn _icon-heart"></button>
-                  <button type="button" className="product-item__btn _icon-shopping-cart"></button>
+                  <button onClick={onClickAdd} type="button" className="product-item__btn _icon-shopping-cart"></button>
                </div>
             </div>
          </div>

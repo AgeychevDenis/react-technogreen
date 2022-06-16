@@ -7,7 +7,6 @@ import { addItem } from '../../redux/slices/cartSlice'
 
 const ProductBlock = ({ id, imageUrl, title, options, volume, voltage, weight, price, priceInMonth, rating }) => {
    const dispatch = useDispatch();
-   const addedCount = useSelector(state => state.cart.items.find(obj => obj.id === id))
    const [counter, setCounter] = useState(rating);
 
    const onClickAdd = () => {

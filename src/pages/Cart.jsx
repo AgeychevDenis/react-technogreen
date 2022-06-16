@@ -1,13 +1,27 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 
 import ImgCart from '../assets/img/icons/shopping-cart.svg';
 import ImgTrash from '../assets/img/icons/trash-o.svg';
 import CartItem from './CartItem';
+import { clearItems } from '../redux/slices/cartSlice';
 
 const Cart = () => {
    const dispatch = useDispatch();
-   const items = useSelector(state => state.cart.items);
+   const { items, totalPrice } = useSelector(state => state.cart);
+
+   const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+
+   const onClickClear = () => {
+      if (window.confirm('Отчистить корзину?')) {
+         dispatch(clearItems())
+      }
+   }
+
+   useEffect(() => {
+      window.scrollTo(0, 0);
+   }, [])
 
    return (
       <div className="cart">
@@ -20,7 +34,7 @@ const Cart = () => {
                   </div>
                   <div className="cart__clear">
                      <img src={ImgTrash} alt="Очистить корзину" />
-                     <span>Очистить корзину</span>
+                     <span onClick={onClickClear}>Очистить корзину</span>
                   </div>
                </div>
                <div className="cart__main">
@@ -30,10 +44,10 @@ const Cart = () => {
                </div>
                <div className="cart__bottom">
                   <p className="cart__total-item">
-                     Итого: <span>4 товара</span>
+                     Итого: <span>{totalCount} шт.</span>
                   </p>
                   <p className="cart__total-price">
-                     Сумма заказа: <span>64999 ₽</span>
+                     Сумма заказа: <span>{totalPrice} ₽</span>
                   </p>
                </div>
                <div className="cart__buttons">

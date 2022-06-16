@@ -1,31 +1,39 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import qs from 'qs'
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-import { setFilterId } from '../redux/slices/filterSlice';
+import { setFilterId, setCurrentPage, setFilters } from '../redux/slices/filterSlice';
 import Skeleton from '../components/ProductBlock/Skeleton';
 import ProductBlock from '../components/ProductBlock';
 import MainImg from '../components/MainImg';
 import Filter from '../components/Filter'
-import Sort from '../components/Sort';
+import Sort, { sortList } from '../components/Sort';
 import Pagination from '../components/Pagination';
 import { SearchContext } from '../App';
 
 const Home = () => {
+   const navigate = useNavigate();
    const dispatch = useDispatch();
-   const { filterId, sort } = useSelector(state => state.filter);
+   const isSearch = useRef(false);
+   const isMounted = useRef(false);
 
+   const { filterId, sort, currentPage } = useSelector(state => state.filter);
    const { searchValue } = useContext(SearchContext);
    const [items, setItems] = useState([]);
    const [isLoading, setIsLoading] = useState(true);
-   const [currentPage, setCurrentPage] = useState(1);
 
    const onChangeFilter = (id) => {
       dispatch(setFilterId(id))
    }
 
-   useEffect(() => {
+   const onChangePage = (num) => {
+      dispatch(setCurrentPage(num))
+   }
+
+   const fetchProduct = () => {
       setIsLoading(true);
 
       const order = sort.sortProperty.includes('-') ? 'asc' : 'desc';
@@ -40,7 +48,46 @@ const Home = () => {
             setItems(res.data)
             setIsLoading(false)
          })
-   }, [filterId, sort.sortProperty, searchValue, currentPage])
+   }
+
+   useEffect(() => {
+      if (isMounted.current) {
+         const queryString = qs.stringify({
+            sortProperty: sort.sortProperty,
+            filterId,
+            currentPage
+         });
+
+         navigate(`?${queryString}`)
+      }
+      isMounted.current = true;
+   }, [filterId, sort.sortProperty, searchValue, currentPage]);
+
+   useEffect(() => {
+      if (window.location.search) {
+         const params = qs.parse(window.location.search.substring(1));
+
+         const sort = sortList.find(obj => obj.sortProperty === params.sortProperty);
+
+         dispatch(
+            setFilters({
+               ...params,
+               sort,
+            })
+         );
+         isSearch.current = true
+      }
+   }, []);
+
+   useEffect(() => {
+      if (!isSearch.current) {
+         fetchProduct()
+      }
+
+      isSearch.current = false;
+
+   }, [filterId, sort.sortProperty, searchValue, currentPage]);
+
 
    const arrAside = ['Товар со скидкой', 'Рассрочка', 'Выгодная цена'];
 
@@ -98,7 +145,7 @@ const Home = () => {
                      }
                   </div>
                </div>
-               <Pagination onChangePage={(number) => setCurrentPage(number)} />
+               <Pagination currentPage={currentPage} onChangePage={onChangePage} />
             </div>
          </section>
       </>

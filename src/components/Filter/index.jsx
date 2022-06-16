@@ -1,5 +1,5 @@
 import Select from 'react-select';
-import data from './data.json'
+import data from './data.json';
 
 const FilterBlock = ({ onClickFilter }) => {
    const handleChange = (newValue) => {

@@ -1,7 +1,9 @@
 import { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { setFilterId } from '../redux/slices/filterSlice';
 import Skeleton from '../components/ProductBlock/Skeleton';
 import ProductBlock from '../components/ProductBlock';
 import MainImg from '../components/MainImg';
@@ -11,21 +13,23 @@ import Pagination from '../components/Pagination';
 import { SearchContext } from '../App';
 
 const Home = () => {
+   const dispatch = useDispatch();
+   const { filterId, sort } = useSelector(state => state.filter);
+
    const { searchValue } = useContext(SearchContext);
    const [items, setItems] = useState([]);
    const [isLoading, setIsLoading] = useState(true);
-   const [filterId, setFilterId] = useState(0);
    const [currentPage, setCurrentPage] = useState(1);
-   const [sortType, setSortType] = useState({
-      name: 'сначала с лучшей оценкой',
-      sortProperty: 'rating'
-   });
+
+   const onChangeFilter = (id) => {
+      dispatch(setFilterId(id))
+   }
 
    useEffect(() => {
       setIsLoading(true);
 
-      const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
-      const sortBy = sortType.sortProperty.replace('-', '');
+      const order = sort.sortProperty.includes('-') ? 'asc' : 'desc';
+      const sortBy = sort.sortProperty.replace('-', '');
       const category = filterId.length > 0 ? `category=${filterId}` : '';
       const search = searchValue ? `&search=${searchValue}` : '';
 
@@ -36,7 +40,7 @@ const Home = () => {
             setItems(res.data)
             setIsLoading(false)
          })
-   }, [filterId, sortType, searchValue, currentPage])
+   }, [filterId, sort.sortProperty, searchValue, currentPage])
 
    const arrAside = ['Товар со скидкой', 'Рассрочка', 'Выгодная цена'];
 
@@ -66,8 +70,8 @@ const Home = () => {
          <section className="catalog-main__filter">
             <div className="container">
                <form>
-                  <Filter onClickFilter={(i) => setFilterId(i)} />
-                  <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
+                  <Filter onClickFilter={onChangeFilter} />
+                  <Sort />
                </form>
             </div >
          </section >

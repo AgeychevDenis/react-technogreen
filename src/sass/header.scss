@@ -192,8 +192,14 @@
          top: 8px;
       }
       @media (max-width: 750px) {
+         & button {
+            display: none;
+         }
          &.show {
             flex: 0 0 85%;
+            & button {
+               display: block;
+            }
          }
       }
    }
@@ -281,9 +287,12 @@
          pointer-events: none;
          &::before {
             position: absolute;
-            top: 9px;
-            left: 11px;
+            width: 40px;
+            height: 37px;
+            padding-left: 11px;
+            padding-top: 8px;
             color: #929292;
+            z-index: 5;
          }
          @media (max-width: 750px) {
             pointer-events: auto;

@@ -98,6 +98,41 @@
          color: #fff;
       }
    }
+   &__add {
+      text-align: center;
+      margin: 100px auto;
+      max-width: 600px;
+      h2 {
+         font-size: 30px;
+         font-weight: 500;
+         margin-bottom: 10px;
+      }
+      p {
+         font-size: 22px;
+         margin-bottom: 20px;
+      }
+      img {
+         font-size: 40px;
+         width: 150px;
+         margin-bottom: 20px;
+      }
+      a {
+         display: block;
+         margin: 0 auto;
+      }
+      @media (max-width: 650px) {
+         margin: 50px auto;
+         h2 {
+            font-size: 24px;
+         }
+         p {
+            font-size: 18px;
+         }
+         img {
+            width: 100px;
+         }
+      }
+   }
 }
 
 .btn-pay {
@@ -111,6 +146,7 @@
    }
    @media (max-width: 425px) {
       margin-top: 10px;
+      margin-left: 0;
    }
 }
 

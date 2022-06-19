@@ -6,6 +6,7 @@ import ImgCart from '../assets/img/icons/shopping-cart.svg';
 import ImgTrash from '../assets/img/icons/trash-o.svg';
 import CartItem from './CartItem';
 import { clearItems } from '../redux/slices/cartSlice';
+import CartEmpty from '../components/CartEmpty';
 
 const Cart = () => {
    const dispatch = useDispatch();
@@ -21,7 +22,11 @@ const Cart = () => {
 
    useEffect(() => {
       window.scrollTo(0, 0);
-   }, [])
+   }, []);
+
+   if (!totalPrice) {
+      return <CartEmpty />;
+   }
 
    return (
       <div className="cart">

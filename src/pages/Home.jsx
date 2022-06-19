@@ -1,11 +1,13 @@
-import { useEffect, useState, useContext, useRef } from 'react';
+import { useEffect, useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import qs from 'qs'
-import axios from 'axios';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { setFilterId, setCurrentPage, setFilters } from '../redux/slices/filterSlice';
+import { fetchProducts } from '../redux/slices/productSlice';
+
 import Skeleton from '../components/ProductBlock/Skeleton';
 import ProductBlock from '../components/ProductBlock';
 import MainImg from '../components/MainImg';
@@ -20,10 +22,10 @@ const Home = () => {
    const isSearch = useRef(false);
    const isMounted = useRef(false);
 
+   const { items, status } = useSelector(state => state.product);
    const { filterId, sort, currentPage } = useSelector(state => state.filter);
+
    const { searchValue } = useContext(SearchContext);
-   const [items, setItems] = useState([]);
-   const [isLoading, setIsLoading] = useState(true);
 
    const onChangeFilter = (id) => {
       dispatch(setFilterId(id))
@@ -33,23 +35,23 @@ const Home = () => {
       dispatch(setCurrentPage(num))
    }
 
-   const fetchProduct = () => {
-      setIsLoading(true);
+   const getProducts = async () => {
 
       const order = sort.sortProperty.includes('-') ? 'asc' : 'desc';
       const sortBy = sort.sortProperty.replace('-', '');
       const category = filterId.length > 0 ? `category=${filterId}` : '';
       const search = searchValue ? `&search=${searchValue}` : '';
 
-      axios.get(
-         `https://6292ab089d159855f08d06e8.mockapi.io/items?page=${currentPage}&limit=6&${category}&sortBy=${sortBy}&order=${order}${search}`
-      )
-         .then(res => {
-            setItems(res.data)
-            setIsLoading(false)
+      dispatch(
+         fetchProducts({
+            order,
+            sortBy,
+            category,
+            search,
+            currentPage
          })
+      );
    }
-
 
    useEffect(() => {
       if (isMounted.current) {
@@ -84,7 +86,7 @@ const Home = () => {
       window.scrollTo(0, 0);
 
       if (!isSearch.current) {
-         fetchProduct()
+         getProducts()
       }
 
       isSearch.current = false;
@@ -94,8 +96,9 @@ const Home = () => {
 
    const arrAside = ['Товар со скидкой', 'Рассрочка', 'Выгодная цена'];
 
-   const skeleton = [...new Array(6)].map((_, i) => <Skeleton key={i} />)
-   const products = items.map(obj => <ProductBlock key={obj.id} {...obj} />)
+   const products = items.map(obj => <ProductBlock key={obj.id} {...obj} />);
+
+   const skeleton = [...new Array(6)].map((_, i) => <Skeleton key={i} />);
 
    return (
       <>
@@ -139,11 +142,15 @@ const Home = () => {
                         <a className="aside__btn-link" href="#">Все акции</a>
                      </div>
                   </div>
-                  <div className="product-items">
-                     {
-                        isLoading ? skeleton : products
-                     }
-                  </div>
+                  {
+                     status === 'error'
+                        ? <div className='catalog-main__error-info'>
+                           <h2>Произошла ошибка</h2>
+                           <p>К сожалению не удалось получить данные. Попробуйте повторить попытку позже.</p>
+                        </div>
+                        : <div className="product-items">{status === 'loading' ? skeleton : products}</div>
+                  }
+
                </div>
                <Pagination currentPage={currentPage} onChangePage={onChangePage} />
             </div>

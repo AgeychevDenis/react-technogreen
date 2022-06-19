@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import ImgCheck from '../assets/img/icons/check.svg'
@@ -10,7 +10,20 @@ const Footer = () => {
    const [showContacts, setShowContacts] = useState(screenWidth ? false : true);
    const [showHelp, setShowHelp] = useState(screenWidth ? false : true);
 
-   const arrLinks = ['Как оформить заказ', 'Способы оплаты', 'Обмен, возврат, гарантия', 'Статусы заказов', 'Доставка'];
+   const menuList = [
+      { name: 'Как оформить заказ', link: 'page404' },
+      { name: 'Способы оплаты', link: 'page404' },
+      { name: 'Обмен, возврат, гарантия', link: 'page404' },
+      { name: 'Статусы заказов', link: 'page404' },
+      { name: 'Доставка', link: 'page404' }
+   ];
+
+   const menuLinks = [
+      { className: '_icon-youtube', link: 'https://www.youtube.com/' },
+      { className: '_icon-vk', link: 'https://vk.com/' },
+      { className: '_icon-instagram', link: 'https://instagram.com' },
+      { className: '_icon-facebook', link: 'https://facebook.com' }
+   ];
 
    return (
       <footer className="footer">
@@ -23,7 +36,7 @@ const Footer = () => {
                      </Link>
                      <div className="column__insta">
                         <p>Наш хэштег в Instagram <br />
-                           <a href="#">#technogreen</a>
+                           <Link to="page404">#technogreen</Link>
                            <span> Грамотный выбор – залог эффективности работы</span>
                         </p>
                      </div>
@@ -59,9 +72,9 @@ const Footer = () => {
                         </h3>
                         {showHelp ?
                            <ul className="column__help-list">
-                              {arrLinks.map((item, i) => (
+                              {menuList.map((obj, i) => (
                                  <li key={i} className="column__help-item">
-                                    <a href="#">{item}</a>
+                                    <Link to={`${obj.link}`}>{obj.name}</Link>
                                  </li>
                               ))}
                            </ul>
@@ -88,25 +101,18 @@ const Footer = () => {
                      <div className="contact__social">
                         Давайте дружить
                         <ul>
-                           <li className="social__item">
-                              <a className="_icon-youtube" href="#"></a>
-                           </li>
-                           <li className="social__item">
-                              <a className="_icon-vk" href="#"></a>
-                           </li>
-                           <li className="social__item">
-                              <a className="_icon-instagram" href="#"></a>
-                           </li>
-                           <li className="social__item">
-                              <a className="_icon-facebook" href="#"></a>
-                           </li>
+                           {menuLinks.map((obj, i) => (
+                              <li key={i} className="social__item">
+                                 <a className={obj.className} target="_blank" href={obj.link}></a>
+                              </li>
+                           ))}
                         </ul>
                      </div>
                   </div>
                   <div className="footer__column">
                      <div className="column__help-phone">
-                        <a className="column__help-tel" href="tel:+79008008020">+7 900 800 80 20</a>
-                        <a className="column__help-link _popup-link" href="#callback">Перезвоните мне</a>
+                        <Link className="column__help-tel" to="tel:+79008008020">+7 900 800 80 20</Link>
+                        <Link className="column__help-link _popup-link" to="page404">Перезвоните мне</Link>
                      </div>
                   </div>
                </div>

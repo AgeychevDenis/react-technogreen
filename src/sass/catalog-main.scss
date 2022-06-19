@@ -399,6 +399,9 @@
       opacity: 0;
       font-size: 18px;
       transition: all 0.3s;
+      @media (max-width: 600px) {
+         display: none;
+      }
    }
    // .product-item__title
    &__title {

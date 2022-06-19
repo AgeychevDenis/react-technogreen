@@ -22,15 +22,15 @@ const Header = () => {
                </div>
                <Search />
                <div className="menu-header__buttons">
-                  <a className="menu-header__btn-link _icon-bar" href="#">Сравнить</a>
-                  <a className="menu-header__btn-link _icon-heart" href="#">Избранное</a>
+                  <Link className="menu-header__btn-link _icon-bar" to="404page">Сравнить</Link>
+                  <Link className="menu-header__btn-link _icon-heart" to="404page">Избранное</Link>
                   <Link className="menu-header__btn-link _icon-shopping-cart" to="/cart">{totalPrice <= 0 ? 'Корзина' : totalPrice} <span>{totalCount}</span> </Link>
-                  <a className="menu-header__btn-link _icon-bell" href="#"></a>
+                  <Link className="menu-header__btn-link _icon-bell" to="404page"></Link>
                </div>
                <div className="menu-header__login">
-                  <a href="login.html" className="menu-header__login-btn">
+                  <Link to="404page" className="menu-header__login-btn">
                      Войти
-                  </a>
+                  </Link>
                </div>
             </div>
          </div>

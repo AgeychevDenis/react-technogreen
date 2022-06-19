@@ -13,7 +13,7 @@ export const sortList = [
 const Sort = () => {
    const dispatch = useDispatch();
    const sort = useSelector(selectSort);
-   const sortRef = useRef()
+   const sortRef = useRef();
 
    const [open, setOpen] = useState(false);
 
@@ -32,7 +32,7 @@ const Sort = () => {
       document.body.addEventListener('click', handlClickOutside);
 
       return () => document.body.removeEventListener('click', handlClickOutside);
-   }, [])
+   }, []);
 
    return (
       <div ref={sortRef} className="filter-sort sort">

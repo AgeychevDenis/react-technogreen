@@ -1,9 +1,12 @@
-import { useState } from 'react'
-import Rating from 'react-rating'
-import IconStarEmpty from '../../assets/img/icons/star-empty.svg'
-import IconStarFull from '../../assets/img/icons/star-full.svg'
-import { useSelector, useDispatch } from 'react-redux'
-import { addItem } from '../../redux/slices/cartSlice'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../redux/slices/cartSlice';
+
+import Rating from 'react-rating';
+
+import IconStarFull from '../../assets/img/icons/star-full.svg';
+import IconStarEmpty from '../../assets/img/icons/star-empty.svg';
 
 const ProductBlock = ({ id, imageUrl, title, options, volume, voltage, weight, price, priceInMonth, rating }) => {
    const dispatch = useDispatch();
@@ -23,7 +26,7 @@ const ProductBlock = ({ id, imageUrl, title, options, volume, voltage, weight, p
 
    return (
       <div key={id} className="product-item__wrapper product-item">
-         <a className="product-item__link" href="#">
+         <Link className="product-item__link" to="page404">
             <div className="product-item__image">
                <img className="product-item__img" src={imageUrl}
                   alt={title} />
@@ -40,7 +43,7 @@ const ProductBlock = ({ id, imageUrl, title, options, volume, voltage, weight, p
                <span> {weight}</span> кг
                <b>]</b>
             </h4>
-         </a>
+         </Link>
          <div className="product-item__box">
             <div className="product-item__inner">
                <span className="compare-checkbox checkbox">

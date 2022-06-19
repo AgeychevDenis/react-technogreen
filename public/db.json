@@ -178,5 +178,185 @@
          "40-60l",
          "10-15kg"
       ]
+   },
+   {
+      "id": 98,
+      "imageUrl": "https://i.ibb.co/0jdTRG3/cart10.webp",
+      "title": "Bosch AdvancedRotak",
+      "options": 3500,
+      "volume": 47,
+      "voltage": 72,
+      "price": 20999,
+      "priceInMonth": 1519,
+      "rating": 4,
+      "weight": 10,
+      "count": 0,
+      "category": [
+         "2001",
+         "Mulching-yes",
+         "72B",
+         "40-60l",
+         "10-15kg"
+      ]
+   },
+   {
+      "id": 784,
+      "imageUrl": "https://i.ibb.co/m9kMryz/cart11.webp",
+      "title": "GC82LM51SP2",
+      "options": 2000,
+      "volume": 38,
+      "voltage": 72,
+      "price": 23599,
+      "priceInMonth": 1699,
+      "rating": 3,
+      "weight": 13,
+      "count": 0,
+      "category": [
+         "2001",
+         "Mulching-no",
+         "72B",
+         "20-40l",
+         "10-15kg"
+      ]
+   },
+   {
+      "id": 4,
+      "imageUrl": "https://i.ibb.co/nM3BHx0/cart12.webp",
+      "title": "Metabo RM 36-18 LTX BL",
+      "options": 1800,
+      "volume": 38,
+      "voltage": 72,
+      "price": 40999,
+      "priceInMonth": 3599,
+      "rating": 1,
+      "weight": 15,
+      "count": 0,
+      "category": [
+         "2001",
+         "Mulching-no",
+         "72B",
+         "20-40l",
+         "10-15kg"
+      ]
+   },
+   {
+      "id": 71,
+      "imageUrl": "https://i.ibb.co/FDbh1dx/cart13.webp",
+      "title": "M 36-18 LTX BL",
+      "options": 1800,
+      "volume": 38,
+      "voltage": 40,
+      "price": 40999,
+      "priceInMonth": 3599,
+      "rating": 3,
+      "weight": 15,
+      "count": 0,
+      "category": [
+         "1000-1500",
+         "Mulching-no",
+         "40B",
+         "20-40l",
+         "10-15kg"
+      ]
+   },
+   {
+      "id": 73,
+      "imageUrl": "https://i.ibb.co/KXWrsBb/cart14.webp",
+      "title": "Totak 36-890",
+      "options": 3500,
+      "volume": 40,
+      "voltage": 27,
+      "price": 37999,
+      "priceInMonth": 3199,
+      "rating": 4,
+      "weight": 18,
+      "count": 0,
+      "category": [
+         "2001",
+         "Mulching-yes",
+         "72B",
+         "20-40l",
+         "15-25kg"
+      ]
+   },
+   {
+      "id": 100,
+      "imageUrl": "https://i.ibb.co/FWR8bwD/cart15.webp",
+      "title": "G24LM33K2",
+      "options": 3700,
+      "volume": 32,
+      "voltage": 40,
+      "price": 55000,
+      "priceInMonth": 4788,
+      "rating": 5,
+      "weight": 12,
+      "count": 0,
+      "category": [
+         "2001",
+         "Mulching-yes",
+         "40B",
+         "20-40l",
+         "10-15kg"
+      ]
+   },
+   {
+      "id": 112,
+      "imageUrl": "https://i.ibb.co/qpN5p2d/cart16.webp",
+      "title": "G40LM41",
+      "options": 4000,
+      "volume": 40,
+      "voltage": 40,
+      "price": 59999,
+      "priceInMonth": 5788,
+      "rating": 4,
+      "weight": 10,
+      "count": 0,
+      "category": [
+         "2001",
+         "Mulching-yes",
+         "40B",
+         "20-40l",
+         "10-15kg"
+      ]
+   },
+   {
+      "id": 101,
+      "imageUrl": "https://i.ibb.co/WprtGM8/cart17.webp",
+      "title": "G40LM35K2",
+      "options": 4500,
+      "volume": 40,
+      "voltage": 40,
+      "price": 57000,
+      "priceInMonth": 5100,
+      "rating": 5,
+      "weight": 13,
+      "count": 0,
+      "category": [
+         "2001",
+         "Mulching-yes",
+         "40B",
+         "20-40l",
+         "10-15kg"
+      ]
+   },
+   {
+      "id": 102,
+      "imageUrl": "https://i.ibb.co/6rMVxy1/cart18.webp",
+      "title": "GD60LM46HP",
+      "options": 3800,
+      "volume": 35,
+      "voltage": 72,
+      "price": 28999,
+      "priceInMonth": 2400,
+      "rating": 5,
+      "weight": 25,
+      "count": 0,
+      "category": [
+         "2001",
+         "Mulching-no",
+         "72B",
+         "20-40l",
+         "15-25kg"
+      ]
    }
 ]

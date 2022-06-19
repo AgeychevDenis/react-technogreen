@@ -1,12 +1,12 @@
-import { useEffect, useContext, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import qs from 'qs'
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { setFilterId, setCurrentPage, setFilters } from '../redux/slices/filterSlice';
-import { fetchProducts } from '../redux/slices/productSlice';
+import { setFilterId, setCurrentPage, setFilters, selectFilter } from '../redux/slices/filterSlice';
+import { fetchProducts, selectProductData } from '../redux/slices/productSlice';
 
 import Skeleton from '../components/ProductBlock/Skeleton';
 import ProductBlock from '../components/ProductBlock';
@@ -14,7 +14,6 @@ import MainImg from '../components/MainImg';
 import Filter from '../components/Filter'
 import Sort, { sortList } from '../components/Sort';
 import Pagination from '../components/Pagination';
-import { SearchContext } from '../App';
 
 const Home = () => {
    const navigate = useNavigate();
@@ -22,10 +21,8 @@ const Home = () => {
    const isSearch = useRef(false);
    const isMounted = useRef(false);
 
-   const { items, status } = useSelector(state => state.product);
-   const { filterId, sort, currentPage } = useSelector(state => state.filter);
-
-   const { searchValue } = useContext(SearchContext);
+   const { items, status } = useSelector(selectProductData);
+   const { filterId, sort, currentPage, searchValue } = useSelector(selectFilter);
 
    const onChangeFilter = (id) => {
       dispatch(setFilterId(id))
@@ -97,7 +94,6 @@ const Home = () => {
    const arrAside = ['Товар со скидкой', 'Рассрочка', 'Выгодная цена'];
 
    const products = items.map(obj => <ProductBlock key={obj.id} {...obj} />);
-
    const skeleton = [...new Array(6)].map((_, i) => <Skeleton key={i} />);
 
    return (

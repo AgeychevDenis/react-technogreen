@@ -7,14 +7,12 @@ export const fetchProducts = createAsyncThunk('items/fetchProductsStatus', async
       `https://6292ab089d159855f08d06e8.mockapi.io/items?page=${currentPage}&limit=6&${category}&sortBy=${sortBy}&order=${order}${search}`
    );
    return data;
-}
-)
+});
 
 const initialState = {
    items: [],
    status: 'loading',
 }
-
 
 const productSlice = createSlice({
    name: 'product',
@@ -38,7 +36,9 @@ const productSlice = createSlice({
          state.items = [];
       }
    }
-})
+});
+
+export const selectProductData = (state) => state.product;
 
 export const { setItems } = productSlice.actions;
 

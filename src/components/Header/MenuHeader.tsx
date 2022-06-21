@@ -1,21 +1,27 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from 'react-router-dom';
 
+type SortItem = {
+   name: string;
+   link: string;
+};
+
+const menuList: SortItem[] = [
+   { name: 'Снегоуборочная техника', link: 'page404' },
+   { name: 'Садовая техника', link: '/' },
+   { name: 'Мойки высокого давления', link: 'page404' },
+   { name: 'Электроинструменты', link: 'page404' },
+   { name: 'Компрессоры', link: 'page404' },
+   { name: 'Аксессуары и запчасти', link: 'page404' }
+];
+
+
 const MenuHeader = () => {
    const [show, setShow] = useState(false);
-   const menuRef = useRef();
-
-   const menuList = [
-      { name: 'Снегоуборочная техника', link: 'page404' },
-      { name: 'Садовая техника', link: '/' },
-      { name: 'Мойки высокого давления', link: 'page404' },
-      { name: 'Электроинструменты', link: 'page404' },
-      { name: 'Компрессоры', link: 'page404' },
-      { name: 'Аксессуары и запчасти', link: 'page404' }
-   ];
+   const menuRef = useRef(null);
 
    useEffect(() => {
-      const handlClickOutside = (event) => {
+      const handlClickOutside = (event: any) => {
          if (!event.path.includes(menuRef.current)) {
             setShow(false);
          }

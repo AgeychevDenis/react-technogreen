@@ -8,14 +8,14 @@ import { selectCart } from '../../redux/slices/cartSlice';
 const Header = () => {
    const { items, totalPrice } = useSelector(selectCart);
 
-   const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+   const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0);
 
    return (
       <header className="header">
          <div className="header__container">
             <div className="header__wrapper menu-header">
                <div className="menu-header__logo">
-                  <Link to="/" className="menu-header__logo-img" href="#">
+                  <Link to="/" className="menu-header__logo-img">
                      <img src={logo} alt="logo" />
                   </Link>
                   <MenuHeader />

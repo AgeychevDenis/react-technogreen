@@ -1,7 +1,9 @@
+import React from 'react';
+
 import icon from '../assets/img/icons/add_shopping.svg';
 import { Link } from 'react-router-dom';
 
-const CartEmpty = () => {
+const CartEmpty: React.FC = () => {
    return (
       <div className="cart__add container">
          <h2>Корзина пуста &#128549;

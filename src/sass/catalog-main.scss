@@ -464,14 +464,12 @@
          margin-right: 3px;
       }
    }
-   // .product-item__installments
-   &__installments {
-   }
    // .product-item__buttons
    &__buttons {
       width: 105px;
       display: flex;
       justify-content: space-around;
+      transition: background-color 0.3s;
    }
    // .product-item__btn
    &__btn {
@@ -479,11 +477,14 @@
       height: 45px;
       border: 1px solid #c4c4c4;
       border-radius: 15px;
-      transition: all 0.3s;
-      background-color: transparent;
+      transition: background-color 0.3s, border-color 0.3s;
       &:hover {
          background-color: $green;
          border: 1px solid $green;
+         &:first-child {
+            background-color: #d11919;
+            border: 1px solid #d11919;
+         }
       }
       &._icon-heart:hover::before,
       &._icon-shopping-cart:hover::before {

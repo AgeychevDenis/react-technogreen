@@ -1,8 +1,13 @@
 import Select from 'react-select';
 import data from './data.json';
+import React from 'react';
 
-const FilterBlock = ({ onClickFilter }) => {
-   const handleChange = (newValue) => {
+type FilterProps = {
+   onClickFilter: any
+}
+
+const FilterBlock: React.FC<FilterProps> = ({ onClickFilter }) => {
+   const handleChange = (newValue: any) => {
       onClickFilter(newValue.value);
    };
 

@@ -1,4 +1,4 @@
-import mainImg from '../assets/img/catalog-main/catalog-main__image-2.jpg'
+import mainImg from '../assets/img/catalog-main/catalog-main__image-2.jpg';
 
 const MainImg = () => {
    return (
@@ -12,4 +12,4 @@ const MainImg = () => {
    )
 }
 
-export default MainImg
+export default MainImg;

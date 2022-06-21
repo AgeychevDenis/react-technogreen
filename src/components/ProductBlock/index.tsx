@@ -1,16 +1,23 @@
-import { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../redux/slices/cartSlice';
+import RatingForm from './Rating';
 
-import Rating from 'react-rating';
+type ProductBlockProps = {
+   id: number,
+   imageUrl: string,
+   title: string,
+   options: number,
+   volume: number, voltage:
+   number, weight: number,
+   price: string,
+   priceInMonth: string,
+   rating: number
+}
 
-import IconStarFull from '../../assets/img/icons/star-full.svg';
-import IconStarEmpty from '../../assets/img/icons/star-empty.svg';
-
-const ProductBlock = ({ id, imageUrl, title, options, volume, voltage, weight, price, priceInMonth, rating }) => {
+const ProductBlock: React.FC<ProductBlockProps> = ({ id, imageUrl, title, options, volume, voltage, weight, price, priceInMonth, rating }) => {
    const dispatch = useDispatch();
-   const [counter, setCounter] = useState(rating);
 
    const onClickAdd = () => {
       const item = {
@@ -22,7 +29,7 @@ const ProductBlock = ({ id, imageUrl, title, options, volume, voltage, weight, p
       dispatch(addItem(item))
    }
 
-   const priceChange = (str) => String(str).replace(/(\d{2})(\d{3})/g, '$1 $2').trim();
+   const priceChange = (str: string) => String(str).replace(/(\d{2})(\d{3})/g, '$1 $2').trim();
 
    return (
       <div key={id} className="product-item__wrapper product-item">
@@ -53,15 +60,7 @@ const ProductBlock = ({ id, imageUrl, title, options, volume, voltage, weight, p
                      <span> Сравнить</span>
                   </label>
                </span>
-               <div className="form__rating">
-                  <Rating
-                     emptySymbol={<img src={IconStarEmpty} className="icon" />}
-                     fullSymbol={<img src={IconStarFull} className="icon" />}
-                     initialRating={counter}
-                     onChange={(rating) => setCounter(rating)}
-                  />
-                  <div className="rating__value">{counter}</div>
-               </div>
+               <RatingForm rating={rating} />
             </div>
             <div className="product-item__inner">
                <div className="product-item__price _icon-clock">

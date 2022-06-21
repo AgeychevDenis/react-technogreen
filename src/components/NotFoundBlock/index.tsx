@@ -1,6 +1,8 @@
-import './NotFoundBlock.scss'
+import React from 'react';
+import './NotFoundBlock.scss';
 
-const NotFoundBlock = () => {
+
+const NotFoundBlock: React.FC = () => {
    return (
       <div className="error-page__inner" style={{ 'textAlign': 'center' }}>
          <h1>404</h1>

@@ -3,7 +3,7 @@ import data from './data.json';
 import React from 'react';
 
 type FilterProps = {
-   onClickFilter: any
+   onClickFilter: Function,
 }
 
 const FilterBlock: React.FC<FilterProps> = ({ onClickFilter }) => {
@@ -32,4 +32,4 @@ const FilterBlock: React.FC<FilterProps> = ({ onClickFilter }) => {
    )
 }
 
-export default FilterBlock
+export default FilterBlock;

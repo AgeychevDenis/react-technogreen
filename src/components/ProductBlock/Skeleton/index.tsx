@@ -2,7 +2,7 @@ import React from "react";
 import ContentLoader from "react-content-loader";
 import './skeleton-product.scss'
 
-const Skeleton = (props) => (
+const Skeleton: React.FC = (props) => (
    <ContentLoader
       speed={2}
       className="skeleton-product"

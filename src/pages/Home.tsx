@@ -2,11 +2,12 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import qs from 'qs'
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { setFilterId, setCurrentPage, setFilters, selectFilter } from '../redux/slices/filterSlice';
-import { fetchProducts, selectProductData } from '../redux/slices/productSlice';
+import { fetchProducts, SearchProductParams, selectProductData } from '../redux/slices/productSlice';
+import { useAppDispatch } from '../redux/store';
 
 import Skeleton from '../components/ProductBlock/Skeleton';
 import ProductBlock from '../components/ProductBlock';
@@ -15,28 +16,29 @@ import Filter from '../components/Filter'
 import Sort, { sortList } from '../components/Sort';
 import Pagination from '../components/Pagination';
 
-const Home = () => {
+
+const Home: React.FC = () => {
    const navigate = useNavigate();
-   const dispatch = useDispatch();
+   const dispatch = useAppDispatch();
    const isSearch = useRef(false);
    const isMounted = useRef(false);
 
    const { items, status } = useSelector(selectProductData);
    const { filterId, sort, currentPage, searchValue } = useSelector(selectFilter);
 
-   const onChangeFilter = (id) => {
-      dispatch(setFilterId(id))
+   const onChangeFilter = (idx: number) => {
+      dispatch(setFilterId(idx))
    }
 
-   const onChangePage = (num) => {
-      dispatch(setCurrentPage(num))
+   const onChangePage = (page: number) => {
+      dispatch(setCurrentPage(page))
    }
 
    const getProducts = async () => {
 
       const order = sort.sortProperty.includes('-') ? 'asc' : 'desc';
       const sortBy = sort.sortProperty.replace('-', '');
-      const category = filterId.length > 0 ? `category=${filterId}` : '';
+      const category = filterId > 0 ? `category=${filterId}` : '';
       const search = searchValue ? `&search=${searchValue}` : '';
 
       dispatch(
@@ -45,39 +47,37 @@ const Home = () => {
             sortBy,
             category,
             search,
-            currentPage
+            currentPage: String(currentPage)
          })
       );
    }
 
-   useEffect(() => {
-      if (isMounted.current) {
-         const queryString = qs.stringify({
-            sortProperty: sort.sortProperty,
-            filterId,
-            currentPage
-         });
+   // useEffect(() => {
+   //    if (isMounted.current) {
+   //       const queryString = qs.stringify({
+   //          sortProperty: sort.sortProperty,
+   //          filterId,
+   //          currentPage
+   //       });
 
-         navigate(`?${queryString}`)
-      }
-      isMounted.current = true;
-   }, [filterId, sort.sortProperty, searchValue, currentPage]);
+   //       navigate(`?${queryString}`)
+   //    }
+   //    isMounted.current = true;
+   // }, [filterId, sort.sortProperty, searchValue, currentPage]);
 
-   useEffect(() => {
-      if (window.location.search) {
-         const params = qs.parse(window.location.search.substring(1));
+   // useEffect(() => {
+   //    if (window.location.search) {
+   //       const params = (qs.parse(window.location.search.substring(1)) as unknown) as SearchProductParams;
 
-         const sort = sortList.find(obj => obj.sortProperty === params.sortProperty);
+   //       const sort = sortList.find(obj => obj.sortProperty === params.sortBy);
 
-         dispatch(
-            setFilters({
-               ...params,
-               sort,
-            })
-         );
-         isSearch.current = true
-      }
-   }, []);
+   //       dispatch(setFilters({
+   //          ...params,
+   //          sort,
+   //       }));
+   //       isSearch.current = true
+   //    }
+   // }, []);
 
    useEffect(() => {
       window.scrollTo(0, 0);
@@ -93,7 +93,7 @@ const Home = () => {
 
    const arrAside = ['Товар со скидкой', 'Рассрочка', 'Выгодная цена'];
 
-   const products = items.map(obj => <ProductBlock key={obj.id} {...obj} />);
+   const products = items.map((obj: any) => <ProductBlock key={obj.id} {...obj} />);
    const skeleton = [...new Array(6)].map((_, i) => <Skeleton key={i} />);
 
    return (
@@ -106,7 +106,7 @@ const Home = () => {
                         <Link to="/" className="_icon-home"></Link>
                      </li>
                      <li className="breadcrumbs__list-item _icon-down">
-                        <span href="#">Садовая техника</span>
+                        <span>Садовая техника</span>
                      </li>
                   </ul>
                </div>

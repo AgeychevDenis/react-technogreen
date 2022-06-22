@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
 import debounce from 'lodash.debounce';
@@ -6,9 +6,9 @@ import { setSearchValue } from '../redux/slices/filterSlice';
 
 import iconClose from '../assets/img/icons/close.svg'
 
-const Search = () => {
+const Search: React.FC = () => {
    const dispatch = useDispatch();
-   const [value, setValue] = useState('')
+   const [value, setValue] = useState('');
    const [show, setShow] = useState(false);
    const inputRef = useRef<HTMLInputElement>(null);
 
@@ -23,7 +23,7 @@ const Search = () => {
          dispatch(setSearchValue(str))
       }, 350), []);
 
-   const onChangeInput = (event: any) => {
+   const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
       setValue(event.target.value);
       updateSearchValue(event.target.value);
    }

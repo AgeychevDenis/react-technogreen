@@ -1,29 +1,47 @@
-import { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import ImgCheck from '../assets/img/icons/check.svg'
 import Imglogo from '../assets/img/logo/logo-catalog.svg';
 
-const Footer = () => {
+type FooterItemList = {
+   name: string;
+   link: string;
+};
+
+type FooterItemLinks = {
+   className: string;
+   link: string;
+};
+
+const menuList: FooterItemList[] = [
+   { name: 'Как оформить заказ', link: 'page404' },
+   { name: 'Способы оплаты', link: 'page404' },
+   { name: 'Обмен, возврат, гарантия', link: 'page404' },
+   { name: 'Статусы заказов', link: 'page404' },
+   { name: 'Доставка', link: 'page404' }
+];
+
+const menuLinks: FooterItemLinks[] = [
+   { className: '_icon-youtube', link: 'https://www.youtube.com/' },
+   { className: '_icon-vk', link: 'https://vk.com/' },
+   { className: '_icon-instagram', link: 'https://instagram.com' },
+   { className: '_icon-facebook', link: 'https://facebook.com' }
+];
+
+
+const Footer: React.FC = () => {
    const screenWidth = window.screen.width <= 1000;
 
    const [showContacts, setShowContacts] = useState(screenWidth ? false : true);
    const [showHelp, setShowHelp] = useState(screenWidth ? false : true);
+   const [value, setValue] = useState('');
 
-   const menuList = [
-      { name: 'Как оформить заказ', link: 'page404' },
-      { name: 'Способы оплаты', link: 'page404' },
-      { name: 'Обмен, возврат, гарантия', link: 'page404' },
-      { name: 'Статусы заказов', link: 'page404' },
-      { name: 'Доставка', link: 'page404' }
-   ];
+   const inputRef = useRef<HTMLInputElement>(null);
 
-   const menuLinks = [
-      { className: '_icon-youtube', link: 'https://www.youtube.com/' },
-      { className: '_icon-vk', link: 'https://vk.com/' },
-      { className: '_icon-instagram', link: 'https://instagram.com' },
-      { className: '_icon-facebook', link: 'https://facebook.com' }
-   ];
+   const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setValue(event.target.value);
+   }
 
    return (
       <footer className="footer">
@@ -88,8 +106,13 @@ const Footer = () => {
                            <h4 className="column__send-lable">
                               Подпишитесь на нашу рассылку
                            </h4>
-                           <input autoComplete="off" type="text" name="form[]" data-value="Ваш e-mail"
-                              className="column__send-input" />
+                           <input
+                              value={value}
+                              ref={inputRef}
+                              onChange={onChangeInput}
+                              type="text"
+                              className="column__send-input"
+                           />
                            <button type="submit" className="column__send-btn">
                               Подписаться
                               <img className="column__send-check" src={ImgCheck} alt="ok" />

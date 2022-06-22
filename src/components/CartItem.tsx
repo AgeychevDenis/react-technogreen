@@ -1,13 +1,26 @@
 import { useDispatch } from "react-redux";
-import { addItem, removeItem, minusItem } from "../redux/slices/cartSlice";
+import { addItem, removeItem, minusItem, CartItem } from "../redux/slices/cartSlice";
 
-const CartItem = ({ id, title, price, count, imageUrl }) => {
+type CartItemProps = {
+   id: number,
+   imageUrl: string,
+   title: string,
+   options: number,
+   volume: number,
+   voltage: number,
+   weight: number,
+   price: number,
+   count: number
+}
+
+const CartItemBlock: React.FC<CartItemProps> = ({ id, title, price, count, imageUrl, options, volume, weight, voltage }) => {
    const dispatch = useDispatch();
 
    const onClickPlus = () => {
       dispatch(addItem({
          id
-      }))
+      } as CartItem
+      ))
    }
 
    const onClickMinus = () => {
@@ -31,7 +44,7 @@ const CartItem = ({ id, title, price, count, imageUrl }) => {
             <h4 className="cart-item__title">
                Газонокосилка аккумуляторная {title}
             </h4>
-            <p>2800 об/мин, 45 л, ширина 425 мм</p>
+            <p>{options} об/мин, {voltage} В, {volume} л, {weight} кг</p>
          </div>
          <div className="cart-item__counter">
             <button onClick={onClickMinus} className="cart-item__minus">–</button>
@@ -44,4 +57,4 @@ const CartItem = ({ id, title, price, count, imageUrl }) => {
    )
 }
 
-export default CartItem;
+export default CartItemBlock;

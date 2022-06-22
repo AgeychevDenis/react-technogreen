@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addItem } from '../../redux/slices/cartSlice';
+import { addItem, CartItem } from '../../redux/slices/cartSlice';
 import RatingForm from './Rating';
 
 type ProductBlockProps = {
@@ -9,27 +9,34 @@ type ProductBlockProps = {
    imageUrl: string,
    title: string,
    options: number,
-   volume: number, voltage:
-   number, weight: number,
-   price: string,
+   volume: number,
+   voltage: number,
+   weight: number,
+   price: number,
    priceInMonth: string,
-   rating: number
+   rating: number,
+   count: number
 }
 
-const ProductBlock: React.FC<ProductBlockProps> = ({ id, imageUrl, title, options, volume, voltage, weight, price, priceInMonth, rating }) => {
+const ProductBlock: React.FC<ProductBlockProps> = ({ id, imageUrl, title, options, volume, voltage, weight, price, priceInMonth, rating, count }) => {
    const dispatch = useDispatch();
 
    const onClickAdd = () => {
-      const item = {
+      const item: CartItem = {
          id,
          title,
          price,
-         imageUrl
+         imageUrl,
+         options,
+         volume,
+         voltage,
+         weight,
+         count
       };
       dispatch(addItem(item))
    }
 
-   const priceChange = (str: string) => String(str).replace(/(\d{2})(\d{3})/g, '$1 $2').trim();
+   // const priceChange = (str: string) => String(str).replace(/(\d{2})(\d{3})/g, '$1 $2').trim();
 
    return (
       <div key={id} className="product-item__wrapper product-item">
@@ -64,8 +71,9 @@ const ProductBlock: React.FC<ProductBlockProps> = ({ id, imageUrl, title, option
             </div>
             <div className="product-item__inner">
                <div className="product-item__price _icon-clock">
-                  {priceChange(price)} ₽
-                  <span className="product-item__installments">от {priceChange(priceInMonth)} ₽/мес</span>
+                  {/* {priceChange(price)} ₽ */}
+                  {price} ₽
+                  <span className="product-item__installments">от {priceInMonth} ₽/мес</span>
                </div>
                <div className="product-item__buttons">
                   <button type="button" className="product-item__btn _icon-heart"></button>

@@ -16,14 +16,14 @@ export type Sort = {
 
 export interface FilterSliceState {
    searchValue: string,
-   filterId: number,
+   filterId: [],
    currentPage: number,
    sort: Sort
 }
 
 const initialState: FilterSliceState = {
    searchValue: '',
-   filterId: 0,
+   filterId: [],
    currentPage: 1,
    sort: { name: 'сначала недорогие', sortProperty: SortPropertyEnum.PRICE_ASC }
 }
@@ -35,7 +35,7 @@ const filterSlice = createSlice({
       setSearchValue(state, action: PayloadAction<string>) {
          state.searchValue = action.payload;
       },
-      setFilterId(state, action: PayloadAction<number>) {
+      setFilterId(state, action: PayloadAction<[]>) {
          state.filterId = action.payload;
       },
       setSort(state, action: PayloadAction<Sort>) {
@@ -47,7 +47,7 @@ const filterSlice = createSlice({
       setFilters(state, action: PayloadAction<FilterSliceState>) {
          state.sort = action.payload.sort;
          state.currentPage = Number(action.payload.currentPage);
-         state.filterId = Number(action.payload.filterId);
+         state.filterId = action.payload.filterId;
       },
    }
 });

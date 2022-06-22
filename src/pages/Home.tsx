@@ -1,34 +1,30 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import qs from 'qs'
 
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
-import { setFilterId, setCurrentPage, setFilters, selectFilter } from '../redux/slices/filterSlice';
-import { fetchProducts, SearchProductParams, selectProductData } from '../redux/slices/productSlice';
+import { setFilterId, setCurrentPage, selectFilter } from '../redux/slices/filterSlice';
+import { fetchProducts, selectProductData } from '../redux/slices/productSlice';
 import { useAppDispatch } from '../redux/store';
 
 import Skeleton from '../components/ProductBlock/Skeleton';
 import ProductBlock from '../components/ProductBlock';
 import MainImg from '../components/MainImg';
 import Filter from '../components/Filter'
-import Sort, { sortList } from '../components/Sort';
+import Sort from '../components/Sort';
 import Pagination from '../components/Pagination';
 
 
 const Home: React.FC = () => {
-   const navigate = useNavigate();
    const dispatch = useAppDispatch();
    const isSearch = useRef(false);
-   const isMounted = useRef(false);
 
    const { items, status } = useSelector(selectProductData);
    const { filterId, sort, currentPage, searchValue } = useSelector(selectFilter);
 
-   const onChangeFilter = (idx: number) => {
-      dispatch(setFilterId(idx))
-   }
+   const onChangeFilter = useCallback((arr: []) => {
+      dispatch(setFilterId(arr))
+   }, []);
 
    const onChangePage = (page: number) => {
       dispatch(setCurrentPage(page))
@@ -38,7 +34,7 @@ const Home: React.FC = () => {
 
       const order = sort.sortProperty.includes('-') ? 'asc' : 'desc';
       const sortBy = sort.sortProperty.replace('-', '');
-      const category = filterId > 0 ? `category=${filterId}` : '';
+      const category = filterId.length > 0 ? `category=${filterId}` : '';
       const search = searchValue ? `&search=${searchValue}` : '';
 
       dispatch(
@@ -51,33 +47,6 @@ const Home: React.FC = () => {
          })
       );
    }
-
-   // useEffect(() => {
-   //    if (isMounted.current) {
-   //       const queryString = qs.stringify({
-   //          sortProperty: sort.sortProperty,
-   //          filterId,
-   //          currentPage
-   //       });
-
-   //       navigate(`?${queryString}`)
-   //    }
-   //    isMounted.current = true;
-   // }, [filterId, sort.sortProperty, searchValue, currentPage]);
-
-   // useEffect(() => {
-   //    if (window.location.search) {
-   //       const params = (qs.parse(window.location.search.substring(1)) as unknown) as SearchProductParams;
-
-   //       const sort = sortList.find(obj => obj.sortProperty === params.sortBy);
-
-   //       dispatch(setFilters({
-   //          ...params,
-   //          sort,
-   //       }));
-   //       isSearch.current = true
-   //    }
-   // }, []);
 
    useEffect(() => {
       window.scrollTo(0, 0);

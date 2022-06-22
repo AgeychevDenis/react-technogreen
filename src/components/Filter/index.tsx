@@ -1,6 +1,7 @@
 import Select from 'react-select';
 import data from './data.json';
 import React from 'react';
+import useWhyDidYouUpdate from 'ahooks/lib/useWhyDidYouUpdate'
 
 type FilterProps = {
    onClickFilter: Function,
@@ -10,6 +11,8 @@ const FilterBlock: React.FC<FilterProps> = ({ onClickFilter }) => {
    const handleChange = (newValue: any) => {
       onClickFilter(newValue.value);
    };
+
+   useWhyDidYouUpdate('FilterBlock', onClickFilter)
 
    return (
       <div className="filter-items">

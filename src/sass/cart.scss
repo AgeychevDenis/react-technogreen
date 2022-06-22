@@ -207,6 +207,16 @@
          color: #fff;
       }
    }
+   &__minus {
+      &-disabled {
+         border: 2px solid #d7d7d7;
+         color: #d7d7d7;
+         &:hover {
+            background-color: transparent;
+            color: #d7d7d7;
+         }
+      }
+   }
    // .cart-item__num
    &__num {
       font-weight: bold;

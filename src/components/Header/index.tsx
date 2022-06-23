@@ -1,12 +1,13 @@
 import MenuHeader from './MenuHeader';
 import logo from '../../assets/img//logo/logo-catalog.svg'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Search from '../Search';
 import { useSelector } from 'react-redux'
 import { selectCart } from '../../redux/slices/cartSlice';
 
 const Header = () => {
    const { items, totalPrice } = useSelector(selectCart);
+   const location = useLocation();
 
    const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0);
 
@@ -20,7 +21,7 @@ const Header = () => {
                   </Link>
                   <MenuHeader />
                </div>
-               <Search />
+               {location.pathname !== '/cart' && <Search />}
                <div className="menu-header__buttons">
                   <Link className="menu-header__btn-link _icon-bar" to="404page">Сравнить</Link>
                   <Link className="menu-header__btn-link _icon-heart" to="404page">Избранное</Link>

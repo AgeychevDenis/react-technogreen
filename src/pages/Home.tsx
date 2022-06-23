@@ -86,7 +86,7 @@ const Home: React.FC = () => {
             <div className="container">
                <form>
                   <Filter onClickFilter={onChangeFilter} />
-                  <Sort />
+                  <Sort value={sort} />
                </form>
             </div >
          </section >

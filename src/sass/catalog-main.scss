@@ -525,16 +525,17 @@
    }
    // .checkbox__compare
    &__compare {
+      position: relative;
       opacity: 0;
+      top: 1px;
       &-div {
          width: 13px;
          height: 13px;
          display: inline-block;
          border: 1px solid #000;
          position: absolute;
-         top: 0;
+         top: 1px;
          left: 0;
-         padding-bottom: 5px;
       }
    }
 }

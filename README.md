@@ -4,7 +4,7 @@
 
 #### React-приложение интернет магазина садовой техники
 
-В данном приложении реализована главная страница с поиском конкретного товара, пагинацией, добавление товара в корзину, сортировка, фильтрация. 
+В данном приложении реализована главная страница с поиском конкретного товара, пагинацией, добавление товара в корзину, сортировка, фильтрация.
 
 <br>
 
@@ -19,14 +19,12 @@
 
 ![secdd](https://user-images.githubusercontent.com/83320431/175813426-7e743e7c-d36b-4c5c-8bcb-454d7d85e653.gif)
 
-
 <br>
 <br>
 
 *Также на сайте реализован поиск по конкретному товару*
 
 ![secd](https://user-images.githubusercontent.com/83320431/175813668-be2b6344-3403-444e-8694-d160825f1533.gif)
-
 
 ## *Запуск проекта* ▶️
 
@@ -57,11 +55,12 @@ yarn start
 
 ### Технологии проекта ###
 
-![react](https://user-images.githubusercontent.com/83320431/164966875-74b548bf-6351-41f7-8421-2d398fe1a2cc.svg)
-![git](https://user-images.githubusercontent.com/83320431/164966836-33554341-f834-4991-9e93-549f2c02e3d5.svg)
-![html5](https://user-images.githubusercontent.com/83320431/164966871-d1edd1c2-ab99-469e-8ea3-816996397d5d.svg)
-![npm](https://user-images.githubusercontent.com/83320431/164966879-8acaddbe-246d-4c6a-ae5c-02a875e05216.svg)
-![sass](https://user-images.githubusercontent.com/83320431/164966900-1c8d75fe-7f1a-4288-915f-d799f3399c49.svg)
+  <img alt="React" src="https://img.shields.io/badge/-React-45b8d8?style=flat-square&logo=react&logoColor=white" />
+  <img alt="redux" src="https://img.shields.io/badge/-Redux-764ABC?style=flat-square&logo=redux&logoColor=white" />
+  <img alt="Sass" src="https://img.shields.io/badge/-Sass-CC6699?style=flat-square&logo=sass&logoColor=white" />
+  <img alt="git" src="https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white" />
+  <img alt="npm" src="https://img.shields.io/badge/-NPM-CB3837?style=flat-square&logo=npm&logoColor=white" />
+  <img alt="html5" src="https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" />
 
 ### Разработал :man:*
 

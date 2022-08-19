@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Rating from 'react-rating';
 
 import IconStarFull from '../../assets/img/icons/star-full.svg';
 import IconStarEmpty from '../../assets/img/icons/star-empty.svg';
 
-// type RatingIconProps = {
-//    rating: number
-// }
+type RatingIconProps = {
+   rating: number
+}
 
-// : React.FC<RatingIconProps>
 
-const RatingIcon = ({ rating }) => {
-   const [counter, setCounter] = useState(rating);
+const RatingIcon = ({ rating }: RatingIconProps): JSX.Element => {
+
+   const [counter, setCounter] = useState<number>(rating);
    return (
       <div className="form__rating">
+         {/*
+            // @ts-ignore */}
+         
          <Rating
             emptySymbol={<img src={IconStarEmpty} className="icon" />}
             fullSymbol={<img src={IconStarFull} className="icon" />}
@@ -22,8 +25,7 @@ const RatingIcon = ({ rating }) => {
          />
          <div className="rating__value">{counter}</div>
       </div>
-
-   )
+   );
 }
 
 export default RatingIcon;

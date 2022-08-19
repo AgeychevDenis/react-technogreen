@@ -5,6 +5,7 @@ import Search from '../Search';
 import { useSelector } from 'react-redux'
 import { selectCart } from '../../redux/slices/cartSlice';
 import { useEffect, useRef } from 'react';
+import { priceChange } from '../../helpers/helpers';
 
 const Header = () => {
    const { items, totalPrice } = useSelector(selectCart);
@@ -35,7 +36,7 @@ const Header = () => {
                <div className="menu-header__buttons">
                   <Link className="menu-header__btn-link _icon-bar" to="404page">Сравнить</Link>
                   <Link className="menu-header__btn-link _icon-heart" to="404page">Избранное</Link>
-                  <Link className="menu-header__btn-link _icon-shopping-cart" to="/cart">{totalPrice <= 0 ? 'Корзина' : totalPrice} <span>{totalCount}</span> </Link>
+                  <Link className="menu-header__btn-link _icon-shopping-cart" to="/cart">{totalPrice <= 0 ? 'Корзина' : priceChange(totalPrice)} <span>{totalCount}</span> </Link>
                   <Link className="menu-header__btn-link _icon-bell" to="404page"></Link>
                </div>
                <div className="menu-header__login">

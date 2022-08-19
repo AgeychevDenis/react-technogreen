@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addItem, CartItem } from '../../redux/slices/cartSlice';
 import RatingForm from './Rating';
+import { priceChange } from '../../helpers/helpers';
 
 type ProductBlockProps = {
    id: number,
@@ -13,7 +14,7 @@ type ProductBlockProps = {
    voltage: number,
    weight: number,
    price: number,
-   priceInMonth: string,
+   priceInMonth: number,
    rating: number,
    count: number
 }
@@ -35,8 +36,6 @@ const ProductBlock: React.FC<ProductBlockProps> = ({ id, imageUrl, title, option
       };
       dispatch(addItem(item))
    }
-
-   // const priceChange = (str: string) => String(str).replace(/(\d{2})(\d{3})/g, '$1 $2').trim();
 
    return (
       <div key={id} className="product-item__wrapper product-item">
@@ -71,9 +70,8 @@ const ProductBlock: React.FC<ProductBlockProps> = ({ id, imageUrl, title, option
             </div>
             <div className="product-item__inner">
                <div className="product-item__price _icon-clock">
-                  {/* {priceChange(price)} ₽ */}
-                  {price} ₽
-                  <span className="product-item__installments">от {priceInMonth} ₽/мес</span>
+                  {priceChange(price)} ₽
+                  <span className="product-item__installments">от {priceChange(priceInMonth)} ₽/мес</span>
                </div>
                <div className="product-item__buttons">
                   <button type="button" className="product-item__btn _icon-heart"></button>

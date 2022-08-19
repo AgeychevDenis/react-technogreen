@@ -7,6 +7,7 @@ import ImgTrash from '../assets/img/icons/trash-o.svg';
 import CartItem from '../components/CartItem';
 import { clearItems, selectCart } from '../redux/slices/cartSlice';
 import CartEmpty from '../components/CartEmpty';
+import { priceChange } from '../helpers/helpers';
 
 const Cart: React.FC = () => {
    const dispatch = useDispatch();
@@ -52,7 +53,7 @@ const Cart: React.FC = () => {
                      Итого: <span>{totalCount} шт.</span>
                   </p>
                   <p className="cart__total-price">
-                     Сумма заказа: <span>{totalPrice} ₽</span>
+                     Сумма заказа: <span>{priceChange(totalPrice)} ₽</span>
                   </p>
                </div>
                <div className="cart__buttons">

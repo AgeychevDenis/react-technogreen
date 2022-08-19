@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { addItem, removeItem, minusItem, CartItem } from "../redux/slices/cartSlice";
 import clsx from 'clsx';
+import { priceChange } from "../helpers/helpers";
 
 type CartItemProps = {
    id: number,
@@ -57,7 +58,7 @@ const CartItemBlock: React.FC<CartItemProps> = ({ id, title, price, count, image
             <span className="cart-item__num">{count}</span>
             <button onClick={onClickPlus} className="cart-item__plus">+</button>
          </div>
-         <span className="cart-item__total">{price * count} ₽</span>
+         <span className="cart-item__total">{priceChange(price * count)} ₽</span>
          <button onClick={onClickRemove} className='cart-item__delete'>&#10006;</button>
       </div>
    )

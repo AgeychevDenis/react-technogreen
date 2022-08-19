@@ -1,4 +1,4 @@
-# **TechnoGreen** :deciduous_tree:*
+# **TechnoGreen** :deciduous_tree:
 
 ### :earth_asia: [Сайт проекта "TechnoGreen"](https://react-technogreen.vercel.app)
 
@@ -66,5 +66,6 @@ yarn start
 </p>
 
 ### Разработал :man:* ###
+
 
 [AgeychevDenis](https://github.com/AgeychevDenis)
